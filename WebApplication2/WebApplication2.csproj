@@ -258,6 +258,15 @@
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Views\Home\application.css" />
+    <Content Include="Views\Home\CenterControl.js" />
+    <Content Include="Views\Home\DirectionHandling.js" />
+    <Content Include="Views\Home\filterMarkers.js" />
+    <Content Include="Views\Home\handleLocationError.js" />
+    <Content Include="Views\Home\HomePageControl.js" />
+    <Content Include="Views\Home\LocateControl.js" />
+    <Content Include="Views\Home\locations.js" />
+    <Content Include="Views\Home\map.html" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -303,6 +312,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Views\Home\MapStyle.js" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
