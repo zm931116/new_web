@@ -13,7 +13,7 @@ namespace WebApplication2.Controllers
             return View();
         }
 
-        public ActionResult Abc()
+        public ActionResult Map()
         {
             return View();
         }
