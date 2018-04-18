@@ -241,6 +241,7 @@
     <Compile Include="Controllers\FoodInsecurityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -260,6 +261,8 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Scripts\map\Accommodation_locations.js" />
+    <Content Include="Scripts\map\addMarkers.js" />
+    <Content Include="Scripts\map\food_location.js" />
     <Content Include="Scripts\map\locating.js" />
     <Content Include="Views\FoodInsecurity\Food_insecurity.html" />
     <Content Include="Content\Site.css" />
@@ -347,8 +350,8 @@
     <Content Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
-    <Content Include="Views\Home\map.cshtml" />
     <Content Include="Views\FoodInsecurity\Index.cshtml" />
+    <Content Include="Views\Map\map.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
