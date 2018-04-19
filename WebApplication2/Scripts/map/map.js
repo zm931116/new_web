@@ -1,12 +1,12 @@
-﻿var markers = []
+﻿var markers = [];
 function initMap() {
     var mainCenter = {
         lat: -34.397,
         lng: 150.644
     };
 
-    var myLocation;
     
+    var myLocation;   
 
     //init map
     var map = new google.maps.Map(document.getElementById('map'), {
@@ -24,29 +24,31 @@ function initMap() {
     var infowindowM = new google.maps.InfoWindow();
 
     
-    markers = ac_location.concat(fd_location);
+    
 
-    addmarkers(markers, map, infowindowM);
+    addmarkers(fd_locations, map, infowindowM, markers);
+    addmarkers(ac_locations, map, infowindowM, markers);
     
 
     document.getElementById("type_selector").onchange = function () {
+        console.log(this.value);
         console.log(markers);
-        markers = [];
+        clearMarkers(markers)
         if (this.value == 1) {
-            markers = fd_location;
-            addmarkers(markers, map, infowindowM);
-            console.log(1);
+            
+            addmarkers(fd_locations, map, infowindowM, markers);
+            
         }
 
         else if (this.value == 2) {
-            markers = ac_location;
-            addmarkers(markers, map, infowindowM);
+            
+            addmarkers(ac_locations, map, infowindowM, markers);
             
         }
 
         else {
-            markers = ac_location.concat(fd_location);
-            addmarkers(markers, map, infowindowM);
+            addmarkers(ac_locations, map, infowindowM, markers);           
+            addmarkers(fd_locations, map, infowindowM, markers);
         }
             
     }
@@ -86,14 +88,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     infoWindow.open(map);
 }
 
-// Removes the markers from the map, but keeps them in the array.
+//Removes the markers from the map, but keeps them in the array.
 
-function clearMarkers() {
-    setMapOnAll(null);
+function clearMarkers(markers) {
+    setMapOnAll(null,markers);
 }
 
 // Sets the map on all markers in the array.
-function setMapOnAll(map) {
+function setMapOnAll(map,markers) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }
