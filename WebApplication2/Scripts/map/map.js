@@ -1,10 +1,12 @@
 ﻿var markers = [];
+
 function initMap() {
     var mainCenter = {
         lat: -34.397,
         lng: 150.644
     };
 
+    
     
     var myLocation;   
 
@@ -13,6 +15,8 @@ function initMap() {
         zoom: 12,
         center: mainCenter
     });
+
+    
 
     //add markers for accomadation
 
@@ -23,20 +27,21 @@ function initMap() {
      //Infowindow for Marker
     var infowindowM = new google.maps.InfoWindow();
 
-    
-    
-
+    var markerCluster;
+       
     addmarkers(fd_locations, map, infowindowM, markers);
     addmarkers(ac_locations, map, infowindowM, markers);
     
 
     document.getElementById("type_selector").onchange = function () {
         console.log(this.value);
-        console.log(markers);
-        clearMarkers(markers)
+        
+        markers=[]
+        
         if (this.value == 1) {
             
             addmarkers(fd_locations, map, infowindowM, markers);
+            
             
         }
 
@@ -44,12 +49,18 @@ function initMap() {
             
             addmarkers(ac_locations, map, infowindowM, markers);
             
+            
         }
 
         else {
             addmarkers(ac_locations, map, infowindowM, markers);           
             addmarkers(fd_locations, map, infowindowM, markers);
         }
+        console.log(markers.length);
+        //clear markers in the cluster
+        markerCluster.clearMarkers();
+        //add new markers and redraw the clusters and markers
+        markerCluster.addMarkers(markers, true)
             
     }
 
@@ -72,6 +83,12 @@ function initMap() {
         handleLocationError(false, infoWindow, map.getCenter());
 
     }
+
+     markerCluster = new MarkerClusterer(map, markers,
+        { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
+
+    
+
 
     document.getElementById("locating_bt").onclick = function()
     {
