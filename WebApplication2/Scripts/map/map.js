@@ -25,7 +25,10 @@ function initMap() {
     var infoWindow = new google.maps.InfoWindow;
 
      //Infowindow for Marker
-    var infowindowM = new google.maps.InfoWindow();
+    var infowindowM = new google.maps.InfoWindow({
+        maxWidth:200
+    });
+    
 
     var markerCluster;
        

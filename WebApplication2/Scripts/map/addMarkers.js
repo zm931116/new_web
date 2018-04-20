@@ -13,7 +13,7 @@
                 var name = location.info +"\n";
                 var go_google = "view on google map";
                 var link_name = go_google.link("https://www.google.com/maps/search/?api=1&query=" + marker.position)
-                infowindowM.setContent('<h2 id="firstHeading" class="firstHeading">'+location.info+'</h2>'+link_name);
+                infowindowM.setContent('<h3 id="firstHeading" class="firstHeading">'+location.info+'</h3>'+link_name);
                 infowindowM.open(map, marker);
             }
         })(marker, i));
