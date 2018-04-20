@@ -1,15 +1,17 @@
 ﻿
 @{
     ViewBag.Title = "map";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = "~/Views/Shared/mapLayout.cshtml";
 }
+
+
 
 <!DOCTYPE html>
 <html>
 <head>
     <style>
         #map {
-            height: 600px;
+            height: 400px;
             width: 100%;
         }
     </style>
@@ -23,12 +25,12 @@
     <div class="container">
         <div class="row">
 
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <button id="locating_bt" type="button" class="btn btn-success">My Location</button>
 
             </div>
 
-            <div class="col-sm-3">
+            <div class="col-sm-6">
                 <select id="type_selector">
                     <option id="food" value="1">Food</option>
                     <option id="ac" value="2">Accommodation</option>
@@ -41,6 +43,7 @@
         </div>
     </div>
 
+    
     <div id="map"></div>
 
     <script src="~/Scripts/map/map.js" type="text/javascript"></script>
@@ -50,5 +53,8 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4DVL2Q_bKb_TQtYmuFxs2AoZMxUEC0MI&callback=initMap">
     </script>
+
+    @Html.Partial("~/Views/Map/ac_list.cshtml")
+    
 </body>
 </html>

@@ -4,65 +4,64 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="Database1Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="orgDB.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="ac_org">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="name" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
-          <Property Name="condition" Type="nchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ac_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="ac_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="ac_condition" Type="varchar" MaxLength="100" />
           <Property Name="latitude" Type="real" Nullable="false" />
           <Property Name="longitude" Type="real" Nullable="false" />
-          <Property Name="available_time" Type="nchar" MaxLength="20" />
+          <Property Name="available_time" Type="varchar" MaxLength="20" />
         </EntityType>
         <EntityType Name="food_org">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="int" Nullable="false" />
-          <Property Name="name" Type="nchar" MaxLength="50" Nullable="false" />
-          <Property Name="address" Type="nchar" MaxLength="100" Nullable="false" />
-          <Property Name="condition" Type="nchar" MaxLength="50" />
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fd_name" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fd_address" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="condition" Type="varchar" MaxLength="50" />
           <Property Name="latitude" Type="real" Nullable="false" />
           <Property Name="longitude" Type="real" Nullable="false" />
-          <Property Name="available_time" Type="nchar" MaxLength="20" />
+          <Property Name="available_time" Type="varchar" MaxLength="20" />
         </EntityType>
-        <EntityContainer Name="Database1ModelStoreContainer">
+        <EntityContainer Name="orgDBStoreContainer">
           <EntitySet Name="ac_org" EntityType="Self.ac_org" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="food_org" EntityType="Self.food_org" Schema="dbo" store:Type="Tables" />
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
-      <Schema Namespace="Database1Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+      <Schema Namespace="orgDB" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="ac_org">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="condition" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ac_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="ac_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="latitude" Type="Single" Nullable="false" />
           <Property Name="longitude" Type="Single" Nullable="false" />
-          <Property Name="available_time" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="available_time" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="ac_condition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="food_org">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
-          <Property Name="Id" Type="Int32" Nullable="false" />
-          <Property Name="name" Type="String" MaxLength="50" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="address" Type="String" MaxLength="100" FixedLength="true" Unicode="true" Nullable="false" />
-          <Property Name="condition" Type="String" MaxLength="50" FixedLength="true" Unicode="true" />
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fd_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fd_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="latitude" Type="Single" Nullable="false" />
           <Property Name="longitude" Type="Single" Nullable="false" />
-          <Property Name="available_time" Type="String" MaxLength="20" FixedLength="true" Unicode="true" />
+          <Property Name="available_time" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityContainer Name="org_info_connection" annotation:LazyLoadingEnabled="true">
+        <EntityContainer Name="org_info_connection1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ac_org" EntityType="Self.ac_org" />
           <EntitySet Name="food_org" EntityType="Self.food_org" />
         </EntityContainer>
@@ -71,14 +70,14 @@
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
-        <EntityContainerMapping StorageEntityContainer="Database1ModelStoreContainer" CdmEntityContainer="org_info_connection">
+        <EntityContainerMapping StorageEntityContainer="orgDBStoreContainer" CdmEntityContainer="org_info_connection1">
           <EntitySetMapping Name="ac_org">
-            <EntityTypeMapping TypeName="Database1Model.ac_org">
+            <EntityTypeMapping TypeName="orgDB.ac_org">
               <MappingFragment StoreEntitySet="ac_org">
+                <ScalarProperty Name="ac_condition" ColumnName="ac_condition" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="address" ColumnName="address" />
-                <ScalarProperty Name="condition" ColumnName="condition" />
+                <ScalarProperty Name="ac_name" ColumnName="ac_name" />
+                <ScalarProperty Name="ac_address" ColumnName="ac_address" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="available_time" ColumnName="available_time" />
@@ -86,11 +85,11 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="food_org">
-            <EntityTypeMapping TypeName="Database1Model.food_org">
+            <EntityTypeMapping TypeName="orgDB.food_org">
               <MappingFragment StoreEntitySet="food_org">
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="name" ColumnName="name" />
-                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="fd_name" ColumnName="fd_name" />
+                <ScalarProperty Name="fd_address" ColumnName="fd_address" />
                 <ScalarProperty Name="condition" ColumnName="condition" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />

@@ -13,10 +13,10 @@ namespace WebApplication2.Models
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class org_info_connection : DbContext
+    public partial class org_info_connection1 : DbContext
     {
-        public org_info_connection()
-            : base("name=org_info_connection")
+        public org_info_connection1()
+            : base("name=org_info_connection1")
         {
         }
     

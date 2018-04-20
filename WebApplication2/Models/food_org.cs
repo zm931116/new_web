@@ -15,8 +15,8 @@ namespace WebApplication2.Models
     public partial class food_org
     {
         public int Id { get; set; }
-        public string name { get; set; }
-        public string address { get; set; }
+        public string fd_name { get; set; }
+        public string fd_address { get; set; }
         public string condition { get; set; }
         public float latitude { get; set; }
         public float longitude { get; set; }
