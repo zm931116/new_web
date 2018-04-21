@@ -15,19 +15,19 @@
           <Property Name="ac_condition" Type="varchar" MaxLength="100" />
           <Property Name="latitude" Type="real" Nullable="false" />
           <Property Name="longitude" Type="real" Nullable="false" />
-          <Property Name="available_time" Type="varchar" MaxLength="20" />
+          <Property Name="available_time" Type="varchar" MaxLength="100" />
         </EntityType>
         <EntityType Name="food_org">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="fd_name" Type="varchar" MaxLength="50" Nullable="false" />
-          <Property Name="fd_address" Type="varchar" MaxLength="100" Nullable="false" />
-          <Property Name="condition" Type="varchar" MaxLength="50" />
+          <Property Name="fd_name" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="fd_address" Type="varchar" MaxLength="200" Nullable="false" />
+          <Property Name="fd_condition" Type="varchar" MaxLength="200" />
           <Property Name="latitude" Type="real" Nullable="false" />
           <Property Name="longitude" Type="real" Nullable="false" />
-          <Property Name="available_time" Type="varchar" MaxLength="20" />
+          <Property Name="available_time" Type="varchar" MaxLength="300" />
         </EntityType>
         <EntityContainer Name="orgDBStoreContainer">
           <EntitySet Name="ac_org" EntityType="Self.ac_org" Schema="dbo" store:Type="Tables" />
@@ -42,24 +42,24 @@
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ac_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="ac_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="latitude" Type="Single" Nullable="false" />
           <Property Name="longitude" Type="Single" Nullable="false" />
-          <Property Name="available_time" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="ac_condition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="available_time" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="org_condition" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="food_org">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
           <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="fd_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="fd_address" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
-          <Property Name="condition" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="org_name" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="org_address" Type="String" MaxLength="200" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="latitude" Type="Single" Nullable="false" />
           <Property Name="longitude" Type="Single" Nullable="false" />
-          <Property Name="available_time" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="available_time" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="org_condition" Type="String" MaxLength="200" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityContainer Name="org_info_connection1" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ac_org" EntityType="Self.ac_org" />
@@ -74,10 +74,10 @@
           <EntitySetMapping Name="ac_org">
             <EntityTypeMapping TypeName="orgDB.ac_org">
               <MappingFragment StoreEntitySet="ac_org">
-                <ScalarProperty Name="ac_condition" ColumnName="ac_condition" />
+                <ScalarProperty Name="org_condition" ColumnName="ac_condition" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="ac_name" ColumnName="ac_name" />
-                <ScalarProperty Name="ac_address" ColumnName="ac_address" />
+                <ScalarProperty Name="org_name" ColumnName="ac_name" />
+                <ScalarProperty Name="org_address" ColumnName="ac_address" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="available_time" ColumnName="available_time" />
@@ -87,10 +87,10 @@
           <EntitySetMapping Name="food_org">
             <EntityTypeMapping TypeName="orgDB.food_org">
               <MappingFragment StoreEntitySet="food_org">
+                <ScalarProperty Name="org_condition" ColumnName="fd_condition" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
-                <ScalarProperty Name="fd_name" ColumnName="fd_name" />
-                <ScalarProperty Name="fd_address" ColumnName="fd_address" />
-                <ScalarProperty Name="condition" ColumnName="condition" />
+                <ScalarProperty Name="org_name" ColumnName="fd_name" />
+                <ScalarProperty Name="org_address" ColumnName="fd_address" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="available_time" ColumnName="available_time" />

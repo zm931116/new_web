@@ -15,11 +15,11 @@ namespace WebApplication2.Models
     public partial class ac_org
     {
         public int Id { get; set; }
-        public string ac_name { get; set; }
-        public string ac_address { get; set; }
+        public string org_name { get; set; }
+        public string org_address { get; set; }
         public float latitude { get; set; }
         public float longitude { get; set; }
         public string available_time { get; set; }
-        public string ac_condition { get; set; }
+        public string org_condition { get; set; }
     }
 }
