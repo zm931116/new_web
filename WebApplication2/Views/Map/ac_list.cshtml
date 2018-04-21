@@ -17,48 +17,14 @@
         {
             <tr>
                 <td>
-                    @Html.DisplayFor(modelItem => item.org_name)
+                    @Html.DisplayFor(modelItem => item.ac_name)
                 </td>
                 <td>
-                    @Html.DisplayFor(modelItem => item.org_address)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.org_condition)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.available_time)
-                </td>
-
-            </tr>
-        }
-
-    </table>
-
-    <h2>Avaiblable Free meal</h2>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Address</th>
-                <th>Condition</th>
-                <th>Available Time</th>
-            </tr>
-        </thead>
-
-
-        @foreach (var item in Model.Fd)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.org_name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.org_address)
+                    @Html.DisplayFor(modelItem => item.ac_address)
                 </td>
 
                 <td>
-                    @Html.DisplayFor(modelItem => item.org_condition)
+                    @Html.DisplayFor(modelItem => item.ac_condition)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.available_time)

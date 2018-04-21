@@ -236,7 +236,6 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
-    <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\FoodInsecurityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -272,7 +271,6 @@
       <DependentUpon>orgDBModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Org_viewModel.cs" />
-    <Compile Include="Models\RootJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
     <Compile Include="Results\ChallengeResult.cs" />
@@ -297,10 +295,11 @@
       <DependentUpon>orgDBModel.edmx</DependentUpon>
       <LastGenOutput>orgDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\map\Accommodation_locations.js" />
     <Content Include="Scripts\map\addMarkers.js" />
-    <Content Include="Scripts\map\init_orgList.js" />
+    <Content Include="Scripts\map\convert_data.js" />
+    <Content Include="Scripts\map\food_location.js" />
     <Content Include="Scripts\map\locating.js" />
-    <Content Include="Views\AboutUs\About_us.html" />
     <Content Include="Views\FoodInsecurity\Food_insecurity.html" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -397,7 +396,6 @@
     <Content Include="Views\Map\map.cshtml" />
     <Content Include="Views\Shared\mapLayout.cshtml" />
     <Content Include="Views\Map\ac_list.cshtml" />
-    <Content Include="Views\AboutUs\Index.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

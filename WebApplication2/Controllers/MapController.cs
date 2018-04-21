@@ -20,22 +20,15 @@ namespace WebApplication2.Controllers
             var org_list = new Org_viewModel();
             org_list.Ac = ac_list;
             org_list.Fd = fd_list;
-            String acStr = GenerateJson(ac_list);
-            String fdStr = GenerateJson(fd_list);
-            
+            GenerateJson(ac_list);
+
             return View("Map","mapLayout",org_list);
         }
 
-        public String GenerateJson(List<ac_org> aList)
+        public void GenerateJson(List<ac_org> aList)
         {
-            return JsonConvert.SerializeObject(aList.ToArray());
-            /*String path = System.Web.Hosting.HostingEnvironment.MapPath("~/") + "Scripts/map/" + fileName;
-            System.IO.File.WriteAllText(path, json);*/
-        }
-
-        public String GenerateJson(List<food_org> aList)
-        {
-            return JsonConvert.SerializeObject(aList.ToArray());
+            String json = JsonConvert.SerializeObject(aList.ToArray());
+            System.IO.File.WriteAllText(@"F:\ac_location.txt", json);
         }
     }
 }

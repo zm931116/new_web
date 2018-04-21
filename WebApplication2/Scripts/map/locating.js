@@ -5,5 +5,5 @@
     infoWindow.open(map);
     map.setCenter(myLocation);
     map.setZoom(12);
-}
+};
 
