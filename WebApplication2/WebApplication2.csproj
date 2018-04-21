@@ -248,10 +248,10 @@
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ac_org.cs">
-      <DependentUpon>orgDBModel.tt</DependentUpon>
+      <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\food_org.cs">
-      <DependentUpon>orgDBModel.tt</DependentUpon>
+      <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -270,6 +270,21 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>orgDBModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orgModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>orgModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orgModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>orgModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\orgModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>orgModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Org_viewModel.cs" />
     <Compile Include="Models\RootJson.cs" />
@@ -297,10 +312,20 @@
       <DependentUpon>orgDBModel.edmx</DependentUpon>
       <LastGenOutput>orgDBModel.cs</LastGenOutput>
     </Content>
+    <Content Include="Models\orgModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>orgModel.edmx</DependentUpon>
+      <LastGenOutput>orgModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Models\orgModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>orgModel.edmx</DependentUpon>
+      <LastGenOutput>orgModel.cs</LastGenOutput>
+    </Content>
     <Content Include="Scripts\map\addMarkers.js" />
     <Content Include="Scripts\map\init_orgList.js" />
     <Content Include="Scripts\map\locating.js" />
-    <Content Include="Views\AboutUs\About_us.html" />
+    <Content Include="Views\AboutUs\test1.html" />
     <Content Include="Views\FoodInsecurity\Food_insecurity.html" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -341,6 +366,13 @@
     </EntityDeploy>
     <Content Include="Models\orgDBModel.edmx.diagram">
       <DependentUpon>orgDBModel.edmx</DependentUpon>
+    </Content>
+    <EntityDeploy Include="Models\orgModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>orgModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <Content Include="Models\orgModel.edmx.diagram">
+      <DependentUpon>orgModel.edmx</DependentUpon>
     </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

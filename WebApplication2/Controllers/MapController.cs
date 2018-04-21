@@ -14,7 +14,7 @@ namespace WebApplication2.Controllers
         // GET: Map
         public ActionResult Map()
         {
-            var entities = new org_info_connection1();
+            var entities = new feed_your_soulEntities();
             var ac_list = entities.ac_org.ToList();
             var fd_list = entities.food_org.ToList();
             var org_list = new Org_viewModel();
