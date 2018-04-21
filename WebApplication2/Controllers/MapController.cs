@@ -23,7 +23,7 @@ namespace WebApplication2.Controllers
             String acStr = GenerateJson(ac_list);
             String fdStr = GenerateJson(fd_list);
             
-            return View("Map","mapLayout",org_list);
+            return View("Map","_Layout",org_list);
         }
 
         public String GenerateJson(List<ac_org> aList)

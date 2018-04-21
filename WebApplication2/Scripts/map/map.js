@@ -6,8 +6,7 @@ function initMap() {
         lng: 150.644
     };
 
-    var fd_markers = [];
-    var ac_markers = [];
+
     var markers = [];
 
     
@@ -55,6 +54,8 @@ function initMap() {
         if (this.value == 1) {
             console.log("food is clicked");
             addmarkers(fd_locations, map, infowindowM, markers);
+            
+            
 
 
         }
@@ -62,6 +63,7 @@ function initMap() {
         else if (this.value == 2) {
 
             addmarkers(ac_locations, map, infowindowM, markers);
+           
 
 
         }
@@ -69,6 +71,8 @@ function initMap() {
         else {
             addmarkers(ac_locations, map, infowindowM, markers);
             addmarkers(fd_locations, map, infowindowM, markers);
+           
+
         }
         
         //clear markers in the cluster

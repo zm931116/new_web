@@ -1,7 +1,7 @@
 ﻿
 @{
     ViewBag.Title = "map";
-    Layout = "~/Views/Shared/mapLayout.cshtml";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model WebApplication2.Models.Org_viewModel
 
@@ -46,8 +46,8 @@
         </div>
     </div>
 
-    
-   
+
+
 
 
     <div id="map"></div>
@@ -64,6 +64,7 @@
 
 
     @Html.Partial("~/Views/Map/ac_list.cshtml")
+    @Html.Partial("~/Views/Map/fd_list.cshtml")
 
 </body>
 </html>

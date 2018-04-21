@@ -395,9 +395,9 @@
     </Content>
     <Content Include="Views\FoodInsecurity\Index.cshtml" />
     <Content Include="Views\Map\map.cshtml" />
-    <Content Include="Views\Shared\mapLayout.cshtml" />
     <Content Include="Views\Map\ac_list.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
+    <Content Include="Views\Map\fd_list.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
