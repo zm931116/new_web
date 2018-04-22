@@ -75,7 +75,11 @@
 
 <script>
     $(document).ready(function () {
-        $('#org_table').DataTable();
+        $('#org_table').DataTable({
+            "scrollY": "400px",
+            "scrollCollapse": true,
+            "paging": true
+        });
     });
 </script>
 
