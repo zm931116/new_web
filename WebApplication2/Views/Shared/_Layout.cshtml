@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
 </head>
 <body>
     <div class="navbar navbar-inverse navbar-fixed-top">
@@ -27,7 +29,7 @@
                     <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, null)</li>
 
                     <li>@Html.ActionLink("Map", "map", "Map")</li>
-                    <li>@Html.ActionLink("FoodInsecurity", "Index", "FoodInsecurity")</li>
+                    <li>@Html.ActionLink("Do you know", "Index", "FoodInsecurity")</li>
                     <li>@Html.ActionLink("AboutUs", "Index", "AboutUs")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
@@ -44,8 +46,7 @@
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+
     
     @RenderSection("Scripts", required: false)
 </body>

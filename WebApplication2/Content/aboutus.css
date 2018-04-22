@@ -1,0 +1,60 @@
+﻿
+.one-third {
+    width: 33.3%;
+    float: left;
+    display: inline-block;
+    text-align: center;
+}
+
+.one-second {
+    width: 50%;
+    float: left;
+    display: inline-block;
+    text-align: center;
+}
+
+.about-left {
+    width: 40%;
+    float: left;
+    display: inline-block;
+    text-align: center;
+}
+
+.about-right {
+    width: 60%;
+    float: left;
+    display: inline-block;
+    text-align: center;
+}
+
+    .about-right img {
+        -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+        box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    }
+
+.one-third img:hover {
+    -webkit-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    -moz-box-shadow: 0 0 20px rgba(0,0,0,0.8);
+    box-shadow: 0 0 20px rgba(0,0,0,0.8);
+}
+
+.about {
+    padding-top: 100px;
+    width: 100%;
+    float: left;
+    display: inline-block;
+}
+
+h1, h2, h3, h4, h5, h6, p, a, li {
+    font-family: raleway;
+}
+
+h1 {
+    font-weight: 800;
+    font-size: 36px;
+}
+
+p {
+    font-size: 20px;
+}

@@ -12,25 +12,7 @@
         </thead>
 
 
-        @foreach (var item in Model.Fd)
-        {
-            <tr>
-                <td>
-                    @Html.DisplayFor(modelItem => item.org_name)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.org_address)
-                </td>
-
-                <td>
-                    @Html.DisplayFor(modelItem => item.org_condition)
-                </td>
-                <td>
-                    @Html.DisplayFor(modelItem => item.available_time)
-                </td>
-
-            </tr>
-        }
+       
 
     </table>
 </div>
