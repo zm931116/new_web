@@ -285,8 +285,13 @@
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
     <Content Include="Areas\HelpPage\Views\_ViewStart.cshtml" />
+    <Content Include="Content\aboutus.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="images\1.png" />
+    <Content Include="images\2.png" />
+    <Content Include="images\3.png" />
+    <Content Include="images\4.png" />
     <Content Include="Models\orgModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>orgModel.edmx</DependentUpon>
@@ -300,7 +305,6 @@
     <Content Include="Scripts\map\addMarkers.js" />
     <Content Include="Scripts\map\init_orgList.js" />
     <Content Include="Scripts\map\locating.js" />
-    <Content Include="Views\AboutUs\test1.html" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -355,6 +359,7 @@
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
+    <Content Include="Views\AboutUs\About_us.html" />
     <Content Include="Views\FoodInsecurity\Visualization%281%29.html" />
     <Content Include="Views\Home\Home.html" />
     <Content Include="Views\_ViewStart.cshtml" />
