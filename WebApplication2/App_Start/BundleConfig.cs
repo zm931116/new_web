@@ -41,7 +41,8 @@ namespace WebApplication2
             bundles.Add(new StyleBundle("~/Content/css").Include(
                  "~/Content/bootstrap.css",
                  "~/Content/Site.css",
-                 "~/Content/aboutus.css"));
+                 "~/Content/aboutus.css",
+                 "~/Content/temp.css"));
         }
     }
 }
