@@ -13,5 +13,11 @@ namespace WebApplication2.Controllers
         {
             return View();
         }
+
+        [ChildActionOnly]
+        public ActionResult getHtmlPage(String path)
+        {
+            return new FilePathResult(path, "text/html");
+        }
     }
 }
