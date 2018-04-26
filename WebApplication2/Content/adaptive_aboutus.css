@@ -1,0 +1,16 @@
+﻿@media only screen and ( max-width:767px) {
+    .about-left {
+        width: 100%;
+    }
+}
+
+@media only screen and ( max-width:767px) {
+    .one-third {
+        width: 100%;
+    }
+}
+@media only screen and ( max-width:767px) {
+    .about-right {
+        width: 100%;
+    }
+}

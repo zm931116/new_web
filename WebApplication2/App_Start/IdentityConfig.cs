@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Security.Claims;
 using System.Threading.Tasks;
@@ -10,6 +11,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
+using Twilio;
 using WebApplication2.Models;
 
 namespace WebApplication2
@@ -19,6 +21,7 @@ namespace WebApplication2
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your email service here to send an email.
+
             return Task.FromResult(0);
         }
     }
@@ -28,6 +31,15 @@ namespace WebApplication2
         public Task SendAsync(IdentityMessage message)
         {
             // Plug in your SMS service here to send a text message.
+             var Twilio = new TwilioRestClient(
+               System.Configuration.ConfigurationManager.AppSettings["SMSAccountIdentification"],
+               System.Configuration.ConfigurationManager.AppSettings["SMSAccountPassword"]);
+             var result = Twilio.SendMessage(
+               System.Configuration.ConfigurationManager.AppSettings["SMSAccountFrom"],
+               message.Destination, message.Body
+             );
+             //Status is one of Queued, Sending, Sent, Failed or null if the number is not valid
+             Trace.TraceInformation(result.Status);
             return Task.FromResult(0);
         }
     }
