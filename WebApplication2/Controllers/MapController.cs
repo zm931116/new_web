@@ -17,6 +17,7 @@ namespace WebApplication2.Controllers
             var entities = new feed_your_soulEntities();
             var ac_list = entities.ac_org.ToList();
             var fd_list = entities.food_org.ToList();
+            
             var org_list = new Org_viewModel();
             org_list.Ac = ac_list;
             org_list.Fd = fd_list;

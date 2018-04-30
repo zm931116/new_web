@@ -55,16 +55,13 @@ function initMap() {
             console.log("food is clicked");
             addmarkers(fd_locations, map, infowindowM, markers);
             
-            
-
-
         }
 
         else if (this.value == 2) {
 
             addmarkers(ac_locations, map, infowindowM, markers);
            
-
+            
 
         }
 

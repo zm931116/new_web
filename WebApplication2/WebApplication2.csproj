@@ -346,6 +346,9 @@
     <Compile Include="Models\ac_org.cs">
       <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\Drinking_Fountains___Map.cs">
+      <DependentUpon>orgModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\food_org.cs">
       <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>
@@ -368,6 +371,9 @@
       <DependentUpon>orgModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Org_viewModel.cs" />
+    <Compile Include="Models\Public_toilets.cs">
+      <DependentUpon>orgModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\RootJson.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Providers\ApplicationOAuthProvider.cs" />
@@ -396,6 +402,7 @@
       <LastGenOutput>orgModel.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\map\addMarkers.js" />
+    <Content Include="Scripts\map\cal_distance.js" />
     <Content Include="Scripts\map\init_orgList.js" />
     <Content Include="Scripts\map\locating.js" />
     <Content Include="Content\Site.css" />
@@ -496,7 +503,6 @@
     <Content Include="Views\Map\map.cshtml" />
     <Content Include="Views\Map\ac_list.cshtml" />
     <Content Include="Views\AboutUs\Index.cshtml" />
-    <Content Include="Views\Map\fd_list.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
