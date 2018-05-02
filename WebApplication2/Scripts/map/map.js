@@ -1,4 +1,8 @@
-﻿
+﻿var markers = [];
+var infoWindow;
+var infowindowM;
+var markerCluster;
+var map;
 
 function initMap() {
     var mainCenter = {
@@ -7,14 +11,14 @@ function initMap() {
     };
 
 
-    var markers = [];
+   
 
     
     
     var myLocation;   
 
     //init map
-    var map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('map'), {
         zoom: 12,
         center: mainCenter
     });
@@ -25,59 +29,25 @@ function initMap() {
 
     // Infowindow for location setting
    
-    var infoWindow = new google.maps.InfoWindow;
+    infoWindow = new google.maps.InfoWindow;
 
      //Infowindow for Marker
-    var infowindowM = new google.maps.InfoWindow({
+    infowindowM = new google.maps.InfoWindow({
         maxWidth:200
     });
     
 
-    var markerCluster;
+    
 
     init_orgList();
 
     //add markers for accommadation and food
     addmarkers(fd_locations, map, infowindowM, markers);
     addmarkers(ac_locations, map, infowindowM, markers);
+    addmarkers(pt_locations, map, infowindowM, markers);
     
 
-    document.getElementById("type_selector").onchange = function () {
-        console.log(this.value);
-        console.log(markers.length);
-        /*console.log("ac" + ac_locations.length);
-        console.log("fd" + fd_locations.length);*/
-        markers = [];
-
-        
-        
-        if (this.value == 1) {
-            console.log("food is clicked");
-            addmarkers(fd_locations, map, infowindowM, markers);
-            
-        }
-
-        else if (this.value == 2) {
-
-            addmarkers(ac_locations, map, infowindowM, markers);
-           
-            
-
-        }
-
-        else {
-            addmarkers(ac_locations, map, infowindowM, markers);
-            addmarkers(fd_locations, map, infowindowM, markers);
-           
-
-        }
-        
-        //clear markers in the cluster
-        markerCluster.clearMarkers();
-        //add new markers and redraw the clusters and markers
-        markerCluster.addMarkers(markers, true);
-
-    };
+    
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
@@ -108,6 +78,8 @@ function initMap() {
     document.getElementById("locating_bt").onclick = function () {
         goToMyLocation(map, myLocation, infoWindow);
     };
+
+
     
 }
 

@@ -9,6 +9,7 @@ namespace WebApplication2.Controllers
     public class AboutUsController : Controller
     {
         // GET: AboutUs
+        [Authorize]
         public ActionResult Index()
         {
             return View();

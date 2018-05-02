@@ -10,5 +10,7 @@ namespace WebApplication2.Models
         public List<ac_org> Ac { get; set; }
 
         public List<food_org> Fd { get; set; }
+
+        public List<Public_toilets> Pt { get; set; }
     }
 }

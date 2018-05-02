@@ -14,14 +14,17 @@
             width: 100%;
         }
     </style>
-    <script src="~/Scripts/map/addMarkers.js"></script>
-    <script src="~/Scripts/map/locating.js" type="text/javascript"></script>
-    <script src="~/Scripts/map/init_orgList.js"></script>
     <script>
         var Aclist = @Html.Raw(Json.Encode(Model.Ac));
         var Fdlist = @Html.Raw(Json.Encode(Model.Fd));
+        var Ptlist = @Html.Raw(Json.Encode(Model.Pt));
+        var ac_locations = [], fd_locations = [], pt_locations = [];
 
     </script>
+    <script src="~/Scripts/map/addMarkers.js"></script>
+    <script src="~/Scripts/map/locating.js" type="text/javascript"></script>
+    <script src="~/Scripts/map/init_orgList.js"></script>
+
 </head>
 <body>
     <h3>View all Organizations</h3>
@@ -37,7 +40,9 @@
                 <select id="type_selector">
                     <option id="food" value="1">Food</option>
                     <option id="ac" value="2">Accommodation</option>
+                    <option id="toilet" value="4">Public Toilet</option>
                     <option id="all" value="3">All</option>
+
 
                 </select>
 
@@ -48,6 +53,49 @@
 
 
 
+    <script>
+        document.getElementById("type_selector").onchange = function () {
+            //console.log(this.value);
+            //console.log(markers.length);
+            /*console.log("ac" + ac_locations.length);
+            console.log("fd" + fd_locations.length);*/
+            markers = [];
+            console.log("before" + markers.length);
+
+            if (this.value == 1) {
+                //console.log("food is clicked");
+                addmarkers(fd_locations, map, infowindowM, markers);
+            }
+
+            else if (this.value == 2) {
+
+                addmarkers(ac_locations, map, infowindowM, markers);
+                
+
+            }
+
+            else if (this.value == 4) {
+                console.log("toilet is cliked");
+                
+                addmarkers(pt_locations, map, infowindowM, markers);
+                
+            }
+
+            else if (this.value == 3) {
+                addmarkers(ac_locations, map, infowindowM, markers);
+                addmarkers(fd_locations, map, infowindowM, markers);
+                addmarkers(pt_locations, mpa, infowindowM, markers);
+
+
+            }
+            console.log("after" + markers.length);
+            //clear markers in the cluster
+            markerCluster.clearMarkers();
+            //add new markers and redraw the clusters and markers
+            markerCluster.addMarkers(markers, true);
+
+        };
+    </script>
 
 
     <div id="map"></div>
@@ -59,12 +107,13 @@
     <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4DVL2Q_bKb_TQtYmuFxs2AoZMxUEC0MI&callback=initMap">
     </script>
-
-
-
-
-    @Html.Partial("~/Views/Map/ac_list.cshtml")
     
+
+
+
+
+
+
 
 </body>
 </html>
