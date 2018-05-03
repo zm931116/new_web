@@ -1,9 +1,4 @@
-﻿
-
-
-
-
-function convertObjects(location) {
+﻿function convertObjects(location) {
     var newLocation = {
         lat: location.latitude, lng: location.longitude, info: location.org_name,
         condition: location.org_condition, available_time: location.available_time
@@ -20,9 +15,17 @@ function convertPtObjects(location) {
     return newLocation;
 }
 
+function convertDfOjects(location) {
+    var newLocation = {
+        lat: location.latitude, lng: location.longitude,
+        info: location.Description
+    };
+    return newLocation;
+}
+
 
 function init_orgList() {
-    var i,j,k;
+    var i,j,k,l;
     var n_location;
     for (i = 0; i < Aclist.length; i++) {
         n_location = convertObjects(Aclist[i]);
@@ -37,5 +40,11 @@ function init_orgList() {
         n_location = convertPtObjects(Ptlist[k]);
         pt_locations.push(n_location);
     }
+    for (i = 0; i < Dflist.length; i++) {
+        n_location = convertDfOjects(Dflist[i]);
+        df_locations.push(n_location);
+    }
+
+   
 
 }

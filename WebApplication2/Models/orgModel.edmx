@@ -18,14 +18,34 @@
           <Property Name="available_time" Type="varchar" MaxLength="200" />
         </EntityType>
         <!--Errors Found During Generation:
-warning 6002: The table/view 'feed_your_soul.dbo.Drinking_Fountains_-_Map' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
-        <EntityType Name="Drinking_Fountains_-_Map">
+warning 6002: The table/view 'feed_your_soul.dbo.Centrelink_Data' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Centrelink_Data">
+          <Key>
+            <PropertyRef Name="Centrelink_Location" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Opening_Days" />
+            <PropertyRef Name="Opening_Hours" />
+          </Key>
+          <Property Name="Centrelink_Location" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+          <Property Name="Opening_Days" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Opening_Hours" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'feed_your_soul.dbo.Drinking_fountains' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Drinking_fountains">
           <Key>
             <PropertyRef Name="Description" />
-            <PropertyRef Name="Co_ordinates" />
+            <PropertyRef Name="latitude" />
+            <PropertyRef Name="longitude" />
           </Key>
           <Property Name="Description" Type="nvarchar" MaxLength="100" Nullable="false" />
-          <Property Name="Co_ordinates" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="latitude" Type="float" Nullable="false" />
+          <Property Name="longitude" Type="float" Nullable="false" />
         </EntityType>
         <EntityType Name="food_org">
           <Key>
@@ -64,11 +84,22 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
         <EntityContainer Name="feed_your_soulModelStoreContainer">
           <EntitySet Name="ac_org" EntityType="Self.ac_org" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="food_org" EntityType="Self.food_org" Schema="dbo" store:Type="Tables" />
-          <EntitySet Name="Drinking_Fountains_-_Map" EntityType="Self.Drinking_Fountains_-_Map" store:Type="Tables" store:Schema="dbo">
+          <EntitySet Name="Centrelink_Data" EntityType="Self.Centrelink_Data" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
-    [Drinking_Fountains_-_Map].[Description] AS [Description], 
-    [Drinking_Fountains_-_Map].[Co_ordinates] AS [Co_ordinates]
-    FROM [dbo].[Drinking_Fountains_-_Map] AS [Drinking_Fountains_-_Map]</DefiningQuery>
+    [Centrelink_Data].[Centrelink_Location] AS [Centrelink_Location], 
+    [Centrelink_Data].[Address] AS [Address], 
+    [Centrelink_Data].[Latitude] AS [Latitude], 
+    [Centrelink_Data].[Longitude] AS [Longitude], 
+    [Centrelink_Data].[Opening_Days] AS [Opening_Days], 
+    [Centrelink_Data].[Opening_Hours] AS [Opening_Hours]
+    FROM [dbo].[Centrelink_Data] AS [Centrelink_Data]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Drinking_fountains" EntityType="Self.Drinking_fountains" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Drinking_fountains].[Description] AS [Description], 
+    [Drinking_fountains].[latitude] AS [latitude], 
+    [Drinking_fountains].[longitude] AS [longitude]
+    FROM [dbo].[Drinking_fountains] AS [Drinking_fountains]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Public_toilets" EntityType="Self.Public_toilets" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -114,17 +145,10 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
         <EntityContainer Name="feed_your_soulEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ac_org" EntityType="Self.ac_org" />
           <EntitySet Name="food_org" EntityType="Self.food_org" />
-          <EntitySet Name="Drinking_Fountains___Map" EntityType="feed_your_soulModel.Drinking_Fountains___Map" />
           <EntitySet Name="Public_toilets" EntityType="feed_your_soulModel.Public_toilets" />
+          <EntitySet Name="Centrelink_Data" EntityType="feed_your_soulModel.Centrelink_Data" />
+          <EntitySet Name="Drinking_fountains" EntityType="feed_your_soulModel.Drinking_fountains" />
         </EntityContainer>
-        <EntityType Name="Drinking_Fountains___Map">
-          <Key>
-            <PropertyRef Name="Description" />
-            <PropertyRef Name="Co_ordinates" />
-          </Key>
-          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
-          <Property Name="Co_ordinates" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
-        </EntityType>
         <EntityType Name="Public_toilets">
           <Key>
             <PropertyRef Name="name" />
@@ -144,6 +168,32 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
           <Property Name="baby_facil" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
           <Property Name="lat" Type="Double" Nullable="false" />
           <Property Name="lon" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Centrelink_Data">
+          <Key>
+            <PropertyRef Name="Centrelink_Location" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+            <PropertyRef Name="Opening_Days" />
+            <PropertyRef Name="Opening_Hours" />
+          </Key>
+          <Property Name="Centrelink_Location" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="Double" Nullable="false" />
+          <Property Name="Longitude" Type="Double" Nullable="false" />
+          <Property Name="Opening_Days" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Opening_Hours" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Drinking_fountains">
+          <Key>
+            <PropertyRef Name="Description" />
+            <PropertyRef Name="latitude" />
+            <PropertyRef Name="longitude" />
+          </Key>
+          <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="latitude" Type="Double" Nullable="false" />
+          <Property Name="longitude" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -177,14 +227,6 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="Drinking_Fountains___Map">
-            <EntityTypeMapping TypeName="feed_your_soulModel.Drinking_Fountains___Map">
-              <MappingFragment StoreEntitySet="Drinking_Fountains_-_Map">
-                <ScalarProperty Name="Co_ordinates" ColumnName="Co_ordinates" />
-                <ScalarProperty Name="Description" ColumnName="Description" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="Public_toilets">
             <EntityTypeMapping TypeName="feed_your_soulModel.Public_toilets">
               <MappingFragment StoreEntitySet="Public_toilets">
@@ -196,6 +238,27 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
                 <ScalarProperty Name="male" ColumnName="male" />
                 <ScalarProperty Name="female" ColumnName="female" />
                 <ScalarProperty Name="name" ColumnName="name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Centrelink_Data">
+            <EntityTypeMapping TypeName="feed_your_soulModel.Centrelink_Data">
+              <MappingFragment StoreEntitySet="Centrelink_Data">
+                <ScalarProperty Name="Opening_Hours" ColumnName="Opening_Hours" />
+                <ScalarProperty Name="Opening_Days" ColumnName="Opening_Days" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Centrelink_Location" ColumnName="Centrelink_Location" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Drinking_fountains">
+            <EntityTypeMapping TypeName="feed_your_soulModel.Drinking_fountains">
+              <MappingFragment StoreEntitySet="Drinking_fountains">
+                <ScalarProperty Name="longitude" ColumnName="longitude" />
+                <ScalarProperty Name="latitude" ColumnName="latitude" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

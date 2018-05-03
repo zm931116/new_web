@@ -27,7 +27,8 @@ namespace WebApplication2.Models
     
         public virtual DbSet<ac_org> ac_org { get; set; }
         public virtual DbSet<food_org> food_org { get; set; }
-        public virtual DbSet<Drinking_Fountains___Map> Drinking_Fountains___Map { get; set; }
         public virtual DbSet<Public_toilets> Public_toilets { get; set; }
+        public virtual DbSet<Centrelink_Data> Centrelink_Data { get; set; }
+        public virtual DbSet<Drinking_fountains> Drinking_fountains { get; set; }
     }
 }

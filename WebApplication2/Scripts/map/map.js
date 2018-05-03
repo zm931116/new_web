@@ -6,8 +6,8 @@ var map;
 
 function initMap() {
     var mainCenter = {
-        lat: -34.397,
-        lng: 150.644
+        lat: -37.80453,
+        lng: 144.9799
     };
 
 

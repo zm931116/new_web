@@ -20,7 +20,8 @@ namespace WebApplication2.Controllers
             var ac_list = entities.ac_org.ToList();
             var fd_list = entities.food_org.ToList();
             var pt_list = entities.Public_toilets.ToList();
-
+            var df_list = entities.Drinking_fountains.ToList();
+            
             //intialize the view_model to load multiple models on the single view
             var org_list = new Org_viewModel();
 
@@ -28,10 +29,10 @@ namespace WebApplication2.Controllers
             org_list.Ac = ac_list;
             org_list.Fd = fd_list;
             org_list.Pt = pt_list;
+            org_list.Df = df_list;
 
 
-            String acStr = GenerateJson(ac_list);
-            String fdStr = GenerateJson(fd_list);
+
             
             return View("Map","_Layout",org_list);
         }

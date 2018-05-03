@@ -12,9 +12,10 @@ namespace WebApplication2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class Drinking_Fountains___Map
+    public partial class Drinking_fountains
     {
         public string Description { get; set; }
-        public string Co_ordinates { get; set; }
+        public double latitude { get; set; }
+        public double longitude { get; set; }
     }
 }

@@ -339,6 +339,7 @@
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MeController.cs" />
+    <Compile Include="Controllers\ToiletController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -346,7 +347,10 @@
     <Compile Include="Models\ac_org.cs">
       <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Drinking_Fountains___Map.cs">
+    <Compile Include="Models\Centrelink_Data.cs">
+      <DependentUpon>orgModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Drinking_fountains.cs">
       <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\food_org.cs">
@@ -532,6 +536,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Toilet\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
