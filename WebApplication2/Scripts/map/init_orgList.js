@@ -23,6 +23,14 @@ function convertDfOjects(location) {
     return newLocation;
 }
 
+function convertClObjects(location) {
+    var newLocation = {
+        lat: location.Latitude, lng: location.Longitude, info: location.Centerlink_Location,
+        address: location.Address, op_days: location.Opening_Days, op_hours: location.Opening_Hours
+    };
+    return newLocation;
+}
+
 
 function init_orgList() {
     var i,j,k,l;
@@ -43,6 +51,11 @@ function init_orgList() {
     for (i = 0; i < Dflist.length; i++) {
         n_location = convertDfOjects(Dflist[i]);
         df_locations.push(n_location);
+    }
+
+    for (i = 0; i < Cllist.length; i++) {
+        n_locaiton = convertClObjects(Cllist[i]);
+        cl_locations.push(n_location);
     }
 
    

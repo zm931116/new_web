@@ -45,6 +45,8 @@ function initMap() {
     addmarkers(fd_locations, map, infowindowM, markers);
     addmarkers(ac_locations, map, infowindowM, markers);
     addmarkers(pt_locations, map, infowindowM, markers);
+    addmarkers(df_locations, map, infowindowM, markers);
+    addmarkers(cl_locations, map, infowindowM, markers);
     
 
     

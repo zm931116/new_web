@@ -21,6 +21,7 @@ namespace WebApplication2.Controllers
             var fd_list = entities.food_org.ToList();
             var pt_list = entities.Public_toilets.ToList();
             var df_list = entities.Drinking_fountains.ToList();
+            var cl_list = entities.Centrelink_Data.ToList();
             
             //intialize the view_model to load multiple models on the single view
             var org_list = new Org_viewModel();
@@ -30,6 +31,7 @@ namespace WebApplication2.Controllers
             org_list.Fd = fd_list;
             org_list.Pt = pt_list;
             org_list.Df = df_list;
+            org_list.Cl = cl_list;
 
 
 

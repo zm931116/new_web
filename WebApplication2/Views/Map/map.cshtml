@@ -19,7 +19,8 @@
         var Fdlist = @Html.Raw(Json.Encode(Model.Fd));
         var Ptlist = @Html.Raw(Json.Encode(Model.Pt));
         var Dflist = @Html.Raw(Json.Encode(Model.Df));
-        var ac_locations = [], fd_locations = [], pt_locations = [], df_locations =[];
+        var Cllist = @Html.Raw(Json.Encode(Model.Cl));
+        var ac_locations = [], fd_locations = [], pt_locations = [], df_locations =[], cl_locations = [];
 
     </script>
     <script src="~/Scripts/map/addMarkers.js"></script>
@@ -89,7 +90,8 @@
             }
 
             else if (this.value == 6) {
-                conslole.log("center link is cliked");
+                console.log("center link is cliked");
+                addmarkers(cl_locations, map, infowindowM, markers);
             }
 
             else if (this.value == 3) {
@@ -97,6 +99,7 @@
                 addmarkers(fd_locations, map, infowindowM, markers);
                 addmarkers(pt_locations, map, infowindowM, markers);
                 addmarkers(df_locations, map, infowindowM, markers);
+                addmarkers(cl_locations, map, infowindowM, markers);
 
 
             }
@@ -116,7 +119,7 @@
 
     <script src="~/Scripts/map/map.js" type="text/javascript"></script>
 
-    @Html.Partial("~/Views/Map/ac_list.cshtml");
+    @Html.Partial("~/Views/Map/ac_list.cshtml")
 
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
