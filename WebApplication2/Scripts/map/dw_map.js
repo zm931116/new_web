@@ -11,42 +11,41 @@ function initMap() {
     };
 
 
-   
 
-    
-    
-    var myLocation;   
+
+
+
+    var myLocation;
 
     //init map
-    map = new google.maps.Map(document.getElementById('map'), {
+    map = new google.maps.Map(document.getElementById('dw_map'), {
         zoom: 12,
         center: mainCenter
     });
 
-    
 
-  
+
+
 
     // Infowindow for location setting
-   
+
     infoWindow = new google.maps.InfoWindow;
 
-     //Infowindow for Marker
+    //Infowindow for Marker
     infowindowM = new google.maps.InfoWindow({
-        maxWidth:200
+        maxWidth: 200
     });
-    addmarkers(ac_locations, map, infowindowM, markers);
-    addmarkers(fd_locations, map, infowindowM, markers);
-    
 
-    
 
-    
+    add_fountains(df_locations, map, infowindowM, markers);
 
-        
-    
-    
-    
+
+
+
+
+
+
+
 
 
     if (navigator.geolocation) {
@@ -69,10 +68,10 @@ function initMap() {
 
     }
 
-     markerCluster = new MarkerClusterer(map, markers,
+    markerCluster = new MarkerClusterer(map, markers,
         { imagePath: 'https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/m' });
 
-    
+
 
 
     document.getElementById("locating_bt").onclick = function () {
@@ -80,7 +79,7 @@ function initMap() {
     };
 
 
-    
+
 }
 
 function handleLocationError(browserHasGeolocation, infoWindow, pos) {
@@ -94,11 +93,11 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 //Removes the markers from the map, but keeps them in the array.
 
 function clearMarkers(markers) {
-    setMapOnAll(null,markers);
+    setMapOnAll(null, markers);
 }
 
 // Sets the map on all markers in the array.
-function setMapOnAll(map,markers) {
+function setMapOnAll(map, markers) {
     for (var i = 0; i < markers.length; i++) {
         markers[i].setMap(map);
     }

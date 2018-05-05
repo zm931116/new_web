@@ -12,11 +12,29 @@ namespace WebApplication2.Controllers
         // GET: Toilet
         public ActionResult public_toilets()
         {
+            
+           
+            return View(get_toilets());
+        }
+
+        private Org_viewModel get_toilets()
+        {
             var entities = new feed_your_soulEntities();
             var pt_list = entities.Public_toilets.ToList();
-            var org_list = new Org_viewModel();
+            Org_viewModel org_list = new Org_viewModel();
             org_list.Pt = pt_list;
-            return View();
+            return org_list;
+        }
+
+        public ActionResult toilet_list()
+        {
+            return PartialView();
+        }
+
+        public ActionResult loadAllData()
+        {
+            Org_viewModel org_list = get_toilets();
+            return Json(new { data = org_list.Pt }, JsonRequestBehavior.AllowGet);
         }
     }
 }

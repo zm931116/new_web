@@ -1,0 +1,55 @@
+﻿@model WebApplication2.Models.Org_viewModel
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+
+<div class="container">
+    <h2>Public toilets</h2>
+
+    <table id="toilet_table" class="display">
+
+
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Male</th>
+                <th>Female</th>
+                <th>Wheelchair</th>
+                <th>Operator</th>
+                <th>Baby Facility</th>
+
+            </tr>
+        </thead>
+    </table>
+
+
+
+</div>
+
+<script>
+    
+    $(document).ready(function () {
+        $('#toilet_table').DataTable({
+
+            "paging": true,
+            ajax: {
+                url: "/Toilet/loadAllData"
+            },
+            "columns": [
+                { "data": "name" },
+                { "data": "male" },
+                { "data": "female" },
+                { "data": "wheelchair" },
+                { "data": "operator" },
+                { "data": "baby_facil" }
+            ],
+        });
+    });
+
+    
+</script>

@@ -334,6 +334,8 @@
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Controllers\AboutUsController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\CenterLinkController.cs" />
+    <Compile Include="Controllers\DrinkingFountainsController.cs" />
     <Compile Include="Controllers\FoodInsecurityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -432,7 +434,10 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.js" />
     <Content Include="Scripts\map\addMarkers.js" />
     <Content Include="Scripts\map\cal_distance.js" />
+    <Content Include="Scripts\map\cl_map.js" />
+    <Content Include="Scripts\map\dw_map.js" />
     <Content Include="Scripts\map\init_orgList.js" />
+    <Content Include="Scripts\map\init_toilets.js" />
     <Content Include="Scripts\map\locating.js" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -479,6 +484,7 @@
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Content\application.css" />
     <Content Include="Scripts\map\map.js" />
+    <Content Include="Scripts\map\toilet_map.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -534,6 +540,9 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Toilet\public_toilets.cshtml" />
+    <Content Include="Views\DrinkingFountains\Index.cshtml" />
+    <Content Include="Views\CenterLink\CenterLink_page.cshtml" />
+    <Content Include="Views\Toilet\toilet_list.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

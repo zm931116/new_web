@@ -24,10 +24,14 @@ function convertDfOjects(location) {
 }
 
 function convertClObjects(location) {
+    //console.log(location);
     var newLocation = {
-        lat: location.Latitude, lng: location.Longitude, info: location.Centerlink_Location,
-        address: location.Address, op_days: location.Opening_Days, op_hours: location.Opening_Hours
+        lat: location.Latitude, lng: location.Longitude,
+        info: location.Centrelink_Location, Address: location.Address,
+        Opening_Days: location.Opening_Days, Opening_Hours: location.Opening_Hours
     };
+    //console.log(newLocation);
+    
     return newLocation;
 }
 
@@ -44,20 +48,32 @@ function init_orgList() {
         fd_locations.push(n_location);
     }
 
-    for (k = 0; k < Ptlist.length; k++) {
-        n_location = convertPtObjects(Ptlist[k]);
-        pt_locations.push(n_location);
+    
+    
+
+}
+
+function init_cllist() {
+    var i;
+    
+
+    for (i = 0; i < Cllist.length; i++) {
+        console.log(Cllist[i]);
+        n_location = convertClObjects(Cllist[i]);
+        console.log(n_location);
+        cl_locations.push(n_location);
+
+
     }
+}
+
+function init_dfList() {
+    var i;
+    var n_location
+
     for (i = 0; i < Dflist.length; i++) {
         n_location = convertDfOjects(Dflist[i]);
         df_locations.push(n_location);
     }
-
-    for (i = 0; i < Cllist.length; i++) {
-        n_locaiton = convertClObjects(Cllist[i]);
-        cl_locations.push(n_location);
-    }
-
-   
 
 }
