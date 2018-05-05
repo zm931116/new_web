@@ -10,7 +10,7 @@ namespace WebApplication2.Controllers
     public class ToiletController : Controller
     {
         // GET: Toilet
-        public ActionResult Index()
+        public ActionResult public_toilets()
         {
             var entities = new feed_your_soulEntities();
             var pt_list = entities.Public_toilets.ToList();

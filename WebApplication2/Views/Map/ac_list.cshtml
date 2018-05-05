@@ -8,11 +8,11 @@
 
 <div class="container">
     <h2>Available Accommodation and Food</h2>
+
     <table id="org_table" class="display">
 
 
-        
-            <thead>
+        <thead>
             <tr>
                 <th>Type</th>
                 <th>Name</th>
@@ -21,58 +21,6 @@
                 <th>Available Time</th>
             </tr>
         </thead>
-                    <tbody>
-
-
-                @foreach (var item in Model.Ac)
-            {
-                <tr>
-                    <td>Accommodation</td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.org_name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.org_address)
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.org_condition)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.available_time)
-                    </td>
-
-                </tr>
-        }
-
-                @foreach (var item in Model.Fd)
-            {
-                <tr>
-                    <td>Food</td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.org_name)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.org_address)
-                    </td>
-
-                    <td>
-                        @Html.DisplayFor(modelItem => item.org_condition)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.available_time)
-                    </td>
-
-                </tr>
-        }
-
-            </tbody>
-        
-
-
-
-
-
     </table>
 
 
@@ -81,17 +29,22 @@
 
 <script>
 
-        $(document).ready(function () {
-            $('#org_table').DataTable({
-                
-                
-                "paging": true,
-                
 
-            });
-        });
+    var table = $('#org_table').DataTable({
 
-    
+        "paging": true,
+        ajax: {
+            url: "/Map/Ajax_SelData",
+            data: { str: $("#type_selector").val() }
+        },
+        "columns": [
+            { "data": "Type" },
+            { "data": "org_name" },
+            { "data": "org_address" },
+            { "data": "org_condition" },
+            { "data": "available_time" }
+        ],
+    });
 </script>
 
-
+<p id="demo"></p>

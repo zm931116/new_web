@@ -533,10 +533,10 @@
     <Content Include="Views\AboutUs\Index.cshtml" />
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
+    <Content Include="Views\Toilet\public_toilets.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Toilet\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

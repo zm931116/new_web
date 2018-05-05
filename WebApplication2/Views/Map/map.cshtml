@@ -26,7 +26,7 @@
     <script src="~/Scripts/map/addMarkers.js"></script>
     <script src="~/Scripts/map/locating.js" type="text/javascript"></script>
     <script src="~/Scripts/map/init_orgList.js"></script>
-    
+
 </head>
 <body>
     <h3>View All Services</h3>
@@ -40,11 +40,12 @@
 
             <div class="col-sm-6">
                 <select id="type_selector">
+                    <option id="0" value="0">Please select</option>
                     <option id="food" value="1">Food</option>
                     <option id="ac" value="2">Accommodation</option>
                     <option id="toilet" value="4">Public Toilet</option>
                     <option id="fountains" value="5">Drinking Fountains</option>
-                    <option id="centerlink" value ="6">Center Link</option>
+                    <option id="centerlink" value="6">Center Link</option>
                     <option id="all" value="3">All</option>
                 </select>
 
@@ -53,24 +54,23 @@
         </div>
     </div>
 
-
+    
 
     <script>
         document.getElementById("type_selector").onchange = function () {
-            //console.log(this.value);
-            //console.log(markers.length);
-            /*console.log("ac" + ac_locations.length);
-            console.log("fd" + fd_locations.length);*/
+            
+            
             markers = [];
             console.log("before" + markers.length);
 
             if (this.value == 1) {
                 //console.log("food is clicked");
+                sel(this.value);
                 addmarkers(fd_locations, map, infowindowM, markers);
             }
 
             else if (this.value == 2) {
-
+                sel(this.value);
                 addmarkers(ac_locations, map, infowindowM, markers);
 
 
@@ -95,6 +95,7 @@
             }
 
             else if (this.value == 3) {
+                sel(this.value);
                 addmarkers(ac_locations, map, infowindowM, markers);
                 addmarkers(fd_locations, map, infowindowM, markers);
                 addmarkers(pt_locations, map, infowindowM, markers);
@@ -110,16 +111,28 @@
             markerCluster.addMarkers(markers, true);
 
         };
-    </script>
+        function sel(val) {
+            $("#listdiv").load("/Map/ac_list")
+            
+            //table.ajax.reload();
+            //table.draw();
+        }
+        $(document).ready(function () {
+            $("#listdiv").load("/Map/ac_list")
 
+        });
+    </script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 
 
 
     <div id="map"></div>
 
     <script src="~/Scripts/map/map.js" type="text/javascript"></script>
-
-    @Html.Partial("~/Views/Map/ac_list.cshtml")
+    <div id="listdiv"></div>
+    @*@Html.Partial("~/Views/Map/ac_list.cshtml")*@
 
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>

@@ -11,10 +11,11 @@ namespace WebApplication2.Models
 {
     using System;
     using System.Collections.Generic;
-    
+
     public partial class ac_org
     {
         public int Id { get; set; }
+        public string Type { get; set; }
         public string org_name { get; set; }
         public string org_address { get; set; }
         public string org_condition { get; set; }
