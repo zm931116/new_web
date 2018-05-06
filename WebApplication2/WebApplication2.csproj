@@ -409,6 +409,7 @@
     <Content Include="images\picture2.jpg" />
     <Content Include="images\picture3.jpg" />
     <Content Include="images\picture4.jpg" />
+    <Content Include="Scripts\map\restaurant.svg" />
     <Content Include="Models\orgModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>orgModel.edmx</DependentUpon>
@@ -484,6 +485,7 @@
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Content\application.css" />
     <Content Include="Scripts\map\map.js" />
+    <Content Include="Scripts\map\toilet.png" />
     <Content Include="Scripts\map\toilet_map.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />

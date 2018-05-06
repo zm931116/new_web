@@ -35,8 +35,8 @@ function initMap() {
     infowindowM = new google.maps.InfoWindow({
         maxWidth:200
     });
-    addmarkers(ac_locations, map, infowindowM, markers);
-    addmarkers(fd_locations, map, infowindowM, markers);
+    addmarkers(ac_locations, map, infowindowM, markers,'ac');
+    addmarkers(fd_locations, map, infowindowM, markers,'fd');
     
 
     

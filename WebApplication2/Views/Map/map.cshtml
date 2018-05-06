@@ -66,12 +66,12 @@
             if (this.value == 1) {
                 //console.log("food is clicked");
                 
-                addmarkers(fd_locations, map, infowindowM, markers);
+                addmarkers(fd_locations, map, infowindowM, markers, 'fd');
             }
 
             else if (this.value == 2) {
                 
-                addmarkers(ac_locations, map, infowindowM, markers);
+                addmarkers(ac_locations, map, infowindowM, markers, 'ac');
 
 
             }
@@ -80,8 +80,8 @@
 
             else if (this.value == 3) {
                 
-                addmarkers(ac_locations, map, infowindowM, markers);
-                addmarkers(fd_locations, map, infowindowM, markers);
+                addmarkers(ac_locations, map, infowindowM, markers, 'ac');
+                addmarkers(fd_locations, map, infowindowM, markers, 'fd');
                 
                 
 
@@ -103,6 +103,8 @@
         }
         $(document).ready(function () {
             $("#listdiv").load("/Map/ac_list")
+
+          
 
         });
         

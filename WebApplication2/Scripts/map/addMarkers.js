@@ -1,10 +1,25 @@
-﻿function addmarkers(listName, map, infowindowM, markers) {
-    var marker, i;
+﻿var iconBase = 'http://maps.google.com/mapfiles/ms/micons/';
+var icons = {
+    ac: {
+        icon: iconBase + 'rangerstation.png'
+    },
+    fd: {
+        icon: iconBase + 'restaurant.png'
+    }
 
+}
+
+
+function addmarkers(listName, map, infowindowM, markers,type) {
+    var marker, i;
+    
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
-            map: map
+            map: map,
+            icon: icons[type].icon
+    
+            
 
         });
         markers.push(marker);
@@ -30,7 +45,9 @@ function add_toilets(listName, map, infowindowM, markers) {
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
+            //icon: iconBase + 'restaurant.png',
             map: map
+            
 
         });
         markers.push(marker);
