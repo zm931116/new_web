@@ -39,16 +39,6 @@ function initMap() {
     addmarkers(fd_locations, map, infowindowM, markers,'fd');
     
 
-    
-
-    
-
-        
-    
-    
-    
-
-
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             var pos = {

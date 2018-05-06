@@ -477,7 +477,6 @@
     <Content Include="Models\orgModel.edmx.diagram">
       <DependentUpon>orgModel.edmx</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\FeedYourSouls - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\knockout-2.3.0.debug.js" />
     <Content Include="Scripts\knockout-2.3.0.js" />
@@ -548,6 +547,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
