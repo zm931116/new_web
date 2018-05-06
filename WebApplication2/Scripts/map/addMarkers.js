@@ -45,7 +45,7 @@ function add_toilets(listName, map, infowindowM, markers) {
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
-            //icon: iconBase + 'restaurant.png',
+            icon: iconBase + 'toilets.png',
             map: map
             
 
@@ -75,7 +75,8 @@ function add_fountains(listName, map, infowindowM, markers) {
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
-            map: map
+            map: map,
+            icon: iconBase +'drinking_water.png'
 
         });
         markers.push(marker);
