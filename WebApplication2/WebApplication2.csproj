@@ -395,21 +395,33 @@
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\map.css" />
     <Content Include="Content\temp.css" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="images\1.png" />
     <Content Include="images\2.png" />
+    <Content Include="images\2in5.png" />
+    <Content Include="images\3.6.png" />
     <Content Include="images\3.png" />
     <Content Include="images\4.png" />
     <Content Include="images\59965.svg" />
     <Content Include="images\background.jpg" />
+    <Content Include="images\Billorfood.png" />
+    <Content Include="images\centrelink.png" />
+    <Content Include="images\cpg-foods-icon.jpeg" />
     <Content Include="images\home2-512.png" />
+    <Content Include="images\homeless1.jpg" />
+    <Content Include="images\homeless2.jpg" />
+    <Content Include="images\homeless3.jpg" />
+    <Content Include="images\ICON-Residence.png" />
+    <Content Include="images\icon-water.jpg" />
+    <Content Include="images\laundry.png" />
     <Content Include="images\old_phone-512.png" />
     <Content Include="images\picture1.jpg" />
     <Content Include="images\picture2.jpg" />
     <Content Include="images\picture3.jpg" />
     <Content Include="images\picture4.jpg" />
-    <Content Include="Scripts\map\restaurant.svg" />
+    <Content Include="images\toilet.png" />
     <Content Include="Models\orgModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>orgModel.edmx</DependentUpon>
@@ -426,6 +438,7 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
+    <None Include="Properties\PublishProfiles\feedyoursouls - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.0.0-vsdoc.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -484,7 +497,6 @@
     <Content Include="Scripts\knockout.validation.js" />
     <Content Include="Content\application.css" />
     <Content Include="Scripts\map\map.js" />
-    <Content Include="Scripts\map\toilet.png" />
     <Content Include="Scripts\map\toilet_map.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
@@ -492,12 +504,8 @@
     <Content Include="Scripts\sammy-0.7.4.js" />
     <Content Include="Scripts\sammy-0.7.4.min.js" />
     <Content Include="Views\AboutUs\AboutUs.html" />
-    <Content Include="Views\FoodInsecurity\Visualization%281%29.html" />
-    <Content Include="images\cpg-foods-icon.png" />
+    <Content Include="Views\FoodInsecurity\Doyouknow.html" />
     <Content Include="Views\Home\Home.html" />
-    <Content Include="images\ICON-Residence.png" />
-    <Content Include="images\iconWater.png" />
-    <Content Include="images\toilet.png" />
     <Content Include="Views\_ViewStart.cshtml" />
     <Content Include="Views\Account\ConfirmEmail.cshtml" />
     <Content Include="Views\Account\ExternalLoginConfirmation.cshtml" />
@@ -547,7 +555,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Properties\PublishProfiles\" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

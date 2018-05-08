@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" contetn="width=device-width, initial-scale=1">
-    
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -14,7 +14,21 @@
     <style>
         .wrap {
             position: relative;
-            background: url(../../images/background.jpg) no-repeat;
+            background: url(map.png);
+            -webkit-background-size: 100%;
+            background-attachment: fixed;
+        }
+        
+        #googleMap {
+            width: 100%;
+            height: 400px;
+            -webkit-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+        
+        .wrap {
+            position: relative;
+            background: url(background.jpg) no-repeat;
             -webkit-background-size: 100%;
             background-attachment: fixed;
             border-bottom-left-radius: 30%;
@@ -62,21 +76,9 @@
     </style>
 </head>
 
-<body>
-    <!--Background picture-->
-    <div class="container-fluid">
-        <div class="wrap">
-            <div class="inner">
-                <div class="text-center">
-                    <h1>FEED YOUR SOUL</h1>
-                    <p style="color:white; padding-bottom: 18%; font-size: 1.5em ">Helping people get access to their basic needs</p>
-                </div>
-            </div>
-        </div>
-    </div>
+<body style="margin:-2%">
 
-
- 
+    <!--Our vision-->
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-5">
@@ -98,7 +100,13 @@
 
             <div class="col-md-7">
                 <div style="margin-top: 10%; margin-right:5%">
-                   
+                    <!--<div style="padding: 5%">
+                    <div class="text-center">
+                        <div class="img-rounded">
+                            <img class="radius" src="https://feedyoursoul.tk/wp-content/uploads/2018/04/search-for-happiness-bipolar.png" alt="">
+                        </div>
+                    </div>
+                </div>-->
 
                     <div id="myCarousel" class="carousel slide" data-ride="carousel">
 
@@ -163,7 +171,12 @@
             </div>
         </div>
 
-
+        <div class="container-fluid" style="margin-top: 8%">
+            <div class="text-center">
+                <h2 style="font-size: 4em; margin-bottom: 5%">Let's get in touch</h2>
+            </div>
+            <hr style="border-color:#ff704d; border-width: 2px; width:20%">
+        </div>
 
         <div class="container">
             <div class="row" style="margin-top: 10%; margin-bottom: 10%">
@@ -192,7 +205,7 @@
                             <br>please call us by
                             <br>
                         </p>
-                        <p>+61 450123603</p>
+                        <p style="padding-bottom: 11%">+61 450123603</p>
                     </div>
                 </div>
 
@@ -206,15 +219,42 @@
                             <br>please email us by
                             <br>
                         </p>
-                        <p>476219235@qq.com</p>
+                        <div style="padding-bottom: 14%">
+                            <a style="color: #ff704d" href="mailto:476219235@qq.com">476219235@qq.com</a>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
+
+
+        <!-- <div id="googleMap"></div>
+        <script>
+            function myMap() {
+                var myCenter = new google.maps.LatLng(41.878114, -87.629798);
+                var mapProp = {
+                    center: myCenter,
+                    zoom: 12,
+                    scrollwheel: false,
+                    draggable: false,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+                var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                var marker = new google.maps.Marker({
+                    position: myCenter
+                });
+                marker.setMap(map);
+            }
+
+        </script>-->
+
+
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBu-916DdpKAjTmJNIgngS6HL_kDIKU0aU&callback=myMap"></script>
 
     </div>
 </body>

@@ -1,4 +1,6 @@
-﻿function convertObjects(location) {
+﻿
+//food and accomodation
+function convertObjects(location) {
     var newLocation = {
         lat: location.latitude, lng: location.longitude, info: location.org_name,
         condition: location.org_condition, available_time: location.available_time

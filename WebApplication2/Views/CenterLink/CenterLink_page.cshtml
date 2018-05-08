@@ -7,12 +7,11 @@
 
 <html>
 <head>
-    <style>
-        #cl_map {
-            height: 600px;
-            width: 100%;
-        }
-    </style>
+    <meta charset="utf-8" >
+
+    <meta name="viewport" content="width=device-width, initial0scale=1">
+    <link rel="stylesheet" href="~/Content/map.css">
+
     <script src="~/Scripts/map/addMarkers.js"></script>
     <script src="~/Scripts/map/locating.js" type="text/javascript"></script>
     <script src="~/Scripts/map/init_orgList.js"></script>
@@ -38,18 +37,13 @@
 <body>
 
     <h3>View all Center Links</h3>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-
-            <div class="col-sm-6">
-                <button id="locating_bt" type="button" class="btn btn-success">My Location</button>
-
-            </div>
-
+                <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>
         </div>
     </div>
 
-    <div id="cl_map"></div>
+    <div id="cl_map" class=" abc"></div>
 
     <script src="~/Scripts/map/cl_map.js" type="text/javascript"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>

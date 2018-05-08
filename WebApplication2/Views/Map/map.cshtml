@@ -8,16 +8,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <style>
-        #map {
-            height: 600px;
-            width: 100%;
-        }
-    </style>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial0scale=1">
+    <link rel="stylesheet" href="~/Content/map.css">
     <script>
         var Aclist = @Html.Raw(Json.Encode(Model.Ac));
         var Fdlist = @Html.Raw(Json.Encode(Model.Fd));
-        
+
         var Dflist = @Html.Raw(Json.Encode(Model.Df));
         var Cllist = @Html.Raw(Json.Encode(Model.Cl));
         var ac_locations = [], fd_locations = [], pt_locations = [], df_locations =[], cl_locations = [];
@@ -30,28 +27,31 @@
 </head>
 <body>
     <h3>View All Services</h3>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
+            
+            
+                <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>
 
-            <div class="col-sm-6">
-                <button id="locating_bt" type="button" class="btn btn-success">My Location</button>
+            
 
-            </div>
-
-            <div class="col-sm-6">
-                <select id="type_selector">
+            
+                <select id="type_selector" class="selector">
                     <option id="0" value="0">Please select</option>
                     <option id="food" value="1">Food</option>
                     <option id="ac" value="2">Accommodation</option>
                     <option id="all" value="3">All</option>
                 </select>
-            </div>
+            
+
         </div>
     </div>
 
     
 
     <script>
+      
+
         init_orgList();
         
         document.getElementById("type_selector").onchange = function () {
@@ -111,7 +111,7 @@
     
 
 
-    <div id="map"></div>
+    <div class="abc" id="map" ></div>
 
     <script src="~/Scripts/map/map.js" type="text/javascript"></script>
     
