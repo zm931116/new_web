@@ -23,4 +23,5 @@ namespace WebApplication2.Models
         public float longitude { get; set; }
         public string available_time { get; set; }
     }
+    ///asdfasdfasdfasdf
 }
