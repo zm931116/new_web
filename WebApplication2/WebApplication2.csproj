@@ -338,6 +338,7 @@
     <Compile Include="Controllers\DrinkingFountainsController.cs" />
     <Compile Include="Controllers\FoodInsecurityController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\LaundryController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MeController.cs" />
@@ -457,6 +458,7 @@
     <Content Include="Scripts\map\dw_map.js" />
     <Content Include="Scripts\map\init_orgList.js" />
     <Content Include="Scripts\map\init_toilets.js" />
+    <Content Include="Scripts\map\laundry_map.js" />
     <Content Include="Scripts\map\locating.js" />
     <Content Include="Content\Site.css" />
     <Content Include="favicon.ico" />
@@ -557,6 +559,8 @@
     <Content Include="Views\DrinkingFountains\Index.cshtml" />
     <Content Include="Views\CenterLink\CenterLink_page.cshtml" />
     <Content Include="Views\Toilet\toilet_list.cshtml" />
+    <Content Include="Views\Laundry\Index.cshtml" />
+    <Content Include="Views\Laundry\laundry_list.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

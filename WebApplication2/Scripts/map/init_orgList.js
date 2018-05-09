@@ -37,6 +37,24 @@ function convertClObjects(location) {
     return newLocation;
 }
 
+function convertLdObjects(location) {
+    var newLocation = {
+        lat: location.Latitude, lng: location.Longitude,
+        info: location.Name, address: location.Address,
+        avai_days: location.Avai_days, timings: location.Timings
+    };
+    return newLocation;
+}
+
+function init_laundryList() {
+    var i;
+    var n_location;
+    for (i = 0; i < LaundryList.length; i++) {
+        n_location = convertLdObjects(LaundryList[i]);
+        ld_locations.push(n_location);
+    }
+}
+
 
 function init_orgList() {
     var i,j,k,l;

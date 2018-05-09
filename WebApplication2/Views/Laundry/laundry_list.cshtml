@@ -1,0 +1,56 @@
+﻿@model WebApplication2.Models.Org_viewModel
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+
+<div class="container">
+    <h2>Laundry services</h2>
+
+    <table id="laundry_table" class="display">
+
+
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Address</th>
+                <th>Available days</th>
+                <th>Available time</th>
+                
+
+            </tr>
+        </thead>
+    </table>
+
+
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        var toilet_table = $('#laundry_table').DataTable({
+
+            "paging": true,
+            ajax: {
+                url: "/Laundry/loadAllData"
+            },
+            "columns": [
+                { "data": "Name" },
+                { "data": "Address" },
+                { "data": "Avai_days" },
+                { "data": "Timings" }
+            ],
+        });
+        $('#laundry_table tbody').on('click', 'tr', function () {
+            $(this).toggleClass('selected');
+        });
+
+    });
+
+
+</script>
