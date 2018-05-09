@@ -60,6 +60,24 @@ warning 6002: The table/view 'feed_your_soul.dbo.Drinking_fountains' does not ha
           <Property Name="available_time" Type="varchar" MaxLength="300" />
         </EntityType>
         <!--Errors Found During Generation:
+warning 6002: The table/view 'feed_your_soul.dbo.Laundry' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Laundry">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Avai_days" />
+            <PropertyRef Name="Timings" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+          </Key>
+          <Property Name="Name" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Address" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Avai_days" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Timings" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Latitude" Type="float" Nullable="false" />
+          <Property Name="Longitude" Type="float" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
 warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="Public_toilets">
           <Key>
@@ -100,6 +118,16 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
     [Drinking_fountains].[latitude] AS [latitude], 
     [Drinking_fountains].[longitude] AS [longitude]
     FROM [dbo].[Drinking_fountains] AS [Drinking_fountains]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Laundry" EntityType="Self.Laundry" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Laundry].[Name] AS [Name], 
+    [Laundry].[Address] AS [Address], 
+    [Laundry].[Avai_days] AS [Avai_days], 
+    [Laundry].[Timings] AS [Timings], 
+    [Laundry].[Latitude] AS [Latitude], 
+    [Laundry].[Longitude] AS [Longitude]
+    FROM [dbo].[Laundry] AS [Laundry]</DefiningQuery>
           </EntitySet>
           <EntitySet Name="Public_toilets" EntityType="Self.Public_toilets" store:Type="Tables" store:Schema="dbo">
             <DefiningQuery>SELECT 
@@ -148,6 +176,7 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
           <EntitySet Name="Public_toilets" EntityType="feed_your_soulModel.Public_toilets" />
           <EntitySet Name="Centrelink_Data" EntityType="feed_your_soulModel.Centrelink_Data" />
           <EntitySet Name="Drinking_fountains" EntityType="feed_your_soulModel.Drinking_fountains" />
+          <EntitySet Name="Laundries" EntityType="feed_your_soulModel.Laundry" />
         </EntityContainer>
         <EntityType Name="Public_toilets">
           <Key>
@@ -194,6 +223,22 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
           <Property Name="Description" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
           <Property Name="latitude" Type="Double" Nullable="false" />
           <Property Name="longitude" Type="Double" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Laundry">
+          <Key>
+            <PropertyRef Name="Name" />
+            <PropertyRef Name="Address" />
+            <PropertyRef Name="Avai_days" />
+            <PropertyRef Name="Timings" />
+            <PropertyRef Name="Latitude" />
+            <PropertyRef Name="Longitude" />
+          </Key>
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="true" />
+          <Property Name="Avai_days" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Timings" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="Double" Nullable="false" />
+          <Property Name="Longitude" Type="Double" Nullable="false" />
         </EntityType>
       </Schema>
     </edmx:ConceptualModels>
@@ -259,6 +304,18 @@ warning 6002: The table/view 'feed_your_soul.dbo.Public_toilets' does not have a
                 <ScalarProperty Name="longitude" ColumnName="longitude" />
                 <ScalarProperty Name="latitude" ColumnName="latitude" />
                 <ScalarProperty Name="Description" ColumnName="Description" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Laundries">
+            <EntityTypeMapping TypeName="feed_your_soulModel.Laundry">
+              <MappingFragment StoreEntitySet="Laundry">
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Timings" ColumnName="Timings" />
+                <ScalarProperty Name="Avai_days" ColumnName="Avai_days" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

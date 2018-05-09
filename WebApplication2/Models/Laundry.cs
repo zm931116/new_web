@@ -12,15 +12,13 @@ namespace WebApplication2.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class food_org
+    public partial class Laundry
     {
-        public int Id { get; set; }
-        public string Type { get; set; }
-        public string org_name { get; set; }
-        public string org_address { get; set; }
-        public string org_condition { get; set; }
-        public float latitude { get; set; }
-        public float longitude { get; set; }
-        public string available_time { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public string Avai_days { get; set; }
+        public string Timings { get; set; }
+        public double Latitude { get; set; }
+        public double Longitude { get; set; }
     }
 }

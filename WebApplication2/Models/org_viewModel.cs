@@ -16,5 +16,7 @@ namespace WebApplication2.Models
         public List<Drinking_fountains> Df { get; set; }
 
         public List<Centrelink_Data> Cl { get; set; }
+
+        public List<Laundry> Ld { get; set; }
     }
 }

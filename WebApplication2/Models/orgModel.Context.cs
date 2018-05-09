@@ -30,5 +30,6 @@ namespace WebApplication2.Models
         public virtual DbSet<Public_toilets> Public_toilets { get; set; }
         public virtual DbSet<Centrelink_Data> Centrelink_Data { get; set; }
         public virtual DbSet<Drinking_fountains> Drinking_fountains { get; set; }
+        public virtual DbSet<Laundry> Laundries { get; set; }
     }
 }

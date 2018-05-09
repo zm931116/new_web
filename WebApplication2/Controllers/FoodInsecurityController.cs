@@ -6,7 +6,7 @@ using System.Web.Mvc;
 
 namespace WebApplication2.Controllers
 {
-    [Authorize]
+   // [Authorize]
     public class FoodInsecurityController : Controller
     {
         // GET: FoodInsecurity

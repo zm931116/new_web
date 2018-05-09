@@ -342,6 +342,7 @@
     <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MeController.cs" />
     <Compile Include="Controllers\ToiletController.cs" />
+    <Compile Include="DistanceHelper.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -359,6 +360,9 @@
       <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\Laundry.cs">
+      <DependentUpon>orgModel.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\MeViewModels.cs" />
     <Compile Include="Models\orgModel.Context.cs">
@@ -377,6 +381,7 @@
       <DependentUpon>orgModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Org_viewModel.cs" />
+    <Compile Include="Models\PositionModel.cs" />
     <Compile Include="Models\Public_toilets.cs">
       <DependentUpon>orgModel.tt</DependentUpon>
     </Compile>

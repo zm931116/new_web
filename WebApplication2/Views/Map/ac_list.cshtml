@@ -29,13 +29,12 @@
 </div>
 
 <script>
-
     var table = $('#org_table').DataTable({
 
         "paging": true,
         ajax: {
             url: "/Map/Ajax_SelData",
-            data: { str: $("#type_selector").val() }
+            data: { cheStr: $("#type_selector").val(), seaStr: $("#Esearchs").val(), conStr: $("#condition_selector").val(), disStr: $("#distance_selector").val(), dateStr: $("#date_selector").val() }
         },
         "columns": [
             { "data": "Type" },
@@ -45,6 +44,4 @@
             { "data": "available_time" }
         ],
     });
-
 </script>
-

@@ -10,6 +10,7 @@
         <EntityTypeShape EntityType="feed_your_soulModel.Public_toilets" Width="1.5" PointX="6.125" PointY="1.5" />
         <EntityTypeShape EntityType="feed_your_soulModel.Centrelink_Data" Width="1.75" PointX="3.75" PointY="4" />
         <EntityTypeShape EntityType="feed_your_soulModel.Drinking_fountains" Width="2.625" PointX="0.75" PointY="3.875" />
+        <EntityTypeShape EntityType="feed_your_soulModel.Laundry" Width="1.5" PointX="8.75" PointY="2" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

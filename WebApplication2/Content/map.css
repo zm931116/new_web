@@ -29,3 +29,7 @@ body {
 .display {
     width: 80%;
 }
+
+#search {
+    margin-left: 33%
+}

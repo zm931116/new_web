@@ -11,16 +11,15 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial0scale=1">
     <link rel="stylesheet" href="~/Content/map.css">
+
     <script>
         var Aclist = @Html.Raw(Json.Encode(Model.Ac));
         var Fdlist = @Html.Raw(Json.Encode(Model.Fd));
 
-        var Dflist = @Html.Raw(Json.Encode(Model.Df));
-        var Cllist = @Html.Raw(Json.Encode(Model.Cl));
-        var ac_locations = [], fd_locations = [], pt_locations = [], df_locations =[], cl_locations = [];
+        var ac_locations = [], fd_locations = [];
 
     </script>
-    <script src="~/Scripts/map/addMarkers.js"></script>
+    @*<script src="~/Scripts/map/addMarkers.js"></script>*@
     <script src="~/Scripts/map/locating.js" type="text/javascript"></script>
     <script src="~/Scripts/map/init_orgList.js"></script>
 
@@ -29,47 +28,78 @@
     <h3>View All Services</h3>
     <div class="container-fluid">
         <div class="row">
-            
-            
-                <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>
 
             
-
+                <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>           
+           
+                <span id="search" class="badge badge-success">Search：</span>
             
-                <select id="type_selector" class="selector">
-                    <option id="0" value="0">Please select</option>
+                <input id="Esearchs" name="Esearchs" onkeyup="selss()" />
+                <select id="type_selector">
+                    <option id="0" value="0">Type</option>
                     <option id="food" value="1">Food</option>
-                    <option id="ac" value="2">Accommodation</option>
+                    <option id="ac" value="2">Accommodation</option>                   
                     <option id="all" value="3">All</option>
                 </select>
+                <select id="condition_selector" onchange="sel()">
+                    <option id="0" value="0">Condition</option>
+                    <option id="free" value="free">free</option>
+                    <option id="low price" value="low price">low price</option>
+                    <option id="concession card" value="concession card">concession card</option>
+                </select>
+                <select id="distance_selector" onchange="disSel()">
+                    <option id="0" value="0">Distance</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="15">15</option>
+                    <option value="20">20</option>
+                    <option value="25">25</option>
+                </select>
+                <select id="date_selector" onchange="sel()">
+                    <option id="0" value="0">Available Time</option>
+                    <option value="weekday">weekday</option>
+                    <option value="weekend">weekend</option>
+                </select>
+
             
 
         </div>
     </div>
 
-    
-
     <script>
-      
 
-        init_orgList();
-        
+        var iconBase = 'http://maps.google.com/mapfiles/ms/micons/';
+        var icons = {
+            Accommodation: {
+                icon: iconBase + 'rangerstation.png'
+            },
+            Food: {
+                icon: iconBase + 'restaurant.png'
+            },
+            mylocation: {
+                icon: iconBase + "info.png"
+            }
+
+        }
+
         document.getElementById("type_selector").onchange = function () {
-            
+            //console.log(this.value);
+            //console.log(markers.length);
+            /*console.log("ac" + ac_locations.length);
+            console.log("fd" + fd_locations.length);*/
+
             sel(this.value);
             markers = [];
             console.log("before" + markers.length);
-            
 
             if (this.value == 1) {
                 //console.log("food is clicked");
-                
-                addmarkers(fd_locations, map, infowindowM, markers, 'fd');
+                //addmarkers(fd_locations, map, infowindowM, markers);
             }
 
             else if (this.value == 2) {
-                
-                addmarkers(ac_locations, map, infowindowM, markers, 'ac');
+
+                //addmarkers(ac_locations, map, infowindowM, markers);
 
 
             }
@@ -77,11 +107,11 @@
            
 
             else if (this.value == 3) {
-                
-                addmarkers(ac_locations, map, infowindowM, markers, 'ac');
-                addmarkers(fd_locations, map, infowindowM, markers, 'fd');
-                
-                
+                //addmarkers(ac_locations, map, infowindowM, markers);
+                //addmarkers(fd_locations, map, infowindowM, markers);
+                //addmarkers(pt_locations, map, infowindowM, markers);
+                //addmarkers(df_locations, map, infowindowM, markers);
+                //addmarkers(cl_locations, map, infowindowM, markers);
 
 
             }
@@ -94,33 +124,132 @@
         };
 
         function sel(val) {
-            $("#listdiv").load("/Map/ac_list")
+            $.ajax({
+                type: "POST",
+                url: "/Map/Ajax_SelData",
+                data: { cheStr: $("#type_selector").val(), seaStr: $("#Esearchs").val(), conStr: $("#condition_selector").val(), disStr: $("#distance_selector").val(), dateStr: $("#date_selector").val() },
+                success: function (result) {
+                    
+                    
+                    var marker = [];
+                    markers = [];
+                    if (result) {
+                        marker
+                        for (var i = 0; i < result.data.length; i++) {
+                            var coords = result.data[i];
+                            //console.log(coords.Type);
+                            var latLng = new google.maps.LatLng(coords.latitude, coords.longitude);
+                            marker = new google.maps.Marker({
+                                position: latLng,
+                                animation: google.maps.Animation.DROP,
+                                map: map,
+                                icon: icons[coords.Type].icon
+                            });
+                            markers.push(marker);
+                            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                return function () {
+                                    var go_google = "Get directions";
+                                    var link_name = go_google.link("https://www.google.com/maps/search/?api=1&query=" + marker.position);
+                                    infowindowM.setContent('<h4 >' + coords.org_name + '</h4>' +
+                                        '<h4 >Requirement:</h4>' + coords.org_condition + '<br>' + '<h4 >Available Time:</h4>' + coords.available_time + '<br>' + link_name);
+                                    infowindowM.open(map, marker);
+                                };
+                            })(marker, i));
+                        }
 
-            //table.ajax.reload();
-            //table.draw();
+
+                        
+                        
+                        //clear markers in the cluster
+                        markerCluster.clearMarkers();
+                        //add new markers and redraw the clusters and markers
+                        markerCluster.addMarkers(markers, true);
+                    }
+                }
+            })
+
+            $("#listdiv").load("/Map/ac_list")
         }
         $(document).ready(function () {
             $("#listdiv").load("/Map/ac_list")
 
-          
-
         });
-        
-        
+
+        function selss() {
+            var datas = { cheStr: $("#type_selector").val(), seaStr: $("#Esearchs").val(), conStr: $("#condition_selector").val(), disStr: $("#distance_selector").val(), dateStr: $("#date_selector").val() }
+            $.ajax({
+                url: "/Map/Ajax_SelData",
+                data: datas,
+                type: "POST",
+                success: function (data) {
+                    var marker = [];
+                    markers = [];
+                    if (data) {
+                        for (var i = 0; i < data.data.length; i++) {
+                            var coords = data.data[i];
+                            var latLng = new google.maps.LatLng(coords.latitude, coords.longitude);
+                            marker = new google.maps.Marker({
+                                position: latLng,
+                                animation: google.maps.Animation.DROP,
+                                map: map,
+                                icon: icons[coords.Type].icon
+                            });
+                            markers.push(marker);
+                            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                return function () {
+                                    var go_google = "Get directions";
+                                    var link_name = go_google.link("https://www.google.com/maps/search/?api=1&query=" + marker.position);
+                                    infowindowM.setContent('<h4 >' + coords.org_name + '</h4>' +
+                                        '<h4 >Requirement:</h4>' + coords.org_condition + '<br>' + '<h4 >Available Time:</h4>' + coords.available_time + '<br>' + link_name);
+                                    infowindowM.open(map, marker);
+                                };
+                            })(marker, i));
+                        }
+                        //clear markers in the cluster
+                        markerCluster.clearMarkers();
+                        //add new markers and redraw the clusters and markers
+                        markerCluster.addMarkers(markers, true);
+                    }
+                }
+            });
+            $("#listdiv").load("/Map/ac_list");
+            //markers = [];
+            //addmarkers(all_locations, map, infowindowM, markers);
+
+        }
+
+        function disSel() {
+            //var data = { loction: myLocation };
+            $.ajax({
+                type: "POST",//数据发送的方式（post 或者 get）
+                url: "/Map/Ajax_SetMylocation",//要发送的后台地址
+                data: { lat: myLocation.lat, lng: myLocation.lng },//要发送的数据（参数）格式为{'val1':"1","val2":"2"}
+                dataType: "json",//后台处理后返回的数据格式
+                success: function (data) {//ajax请求成功后触发的方法
+                    $("#listdiv").load("/Map/ac_list")
+                    sel();
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+                    alert(msg);//弹出错误信息
+                }
+            });
+        }
     </script>
-    
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+    <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
 
 
-    <div class="abc" id="map" ></div>
+
+    <div id="map" class="abc"></div>
 
     <script src="~/Scripts/map/map.js" type="text/javascript"></script>
-    
-    @*@Html.Partial("~/Views/Map/ac_list.cshtml")*@
-    <div id="listdiv" ></div>
-    
+    <div id="listdiv"></div>
+   
+
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js">
     </script>
-    <script 
+    <script async defer
             src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD4DVL2Q_bKb_TQtYmuFxs2AoZMxUEC0MI&callback=initMap">
     </script>
 </body>

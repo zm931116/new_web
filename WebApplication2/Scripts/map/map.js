@@ -3,7 +3,7 @@ var infoWindow;
 var infowindowM;
 var markerCluster;
 var map;
-
+var myLocation; 
 function initMap() {
     var mainCenter = {
         lat: -37.80453,
@@ -15,7 +15,7 @@ function initMap() {
 
     
     
-    var myLocation;   
+      
 
     //init map
     map = new google.maps.Map(document.getElementById('map'), {
@@ -35,15 +35,14 @@ function initMap() {
     infowindowM = new google.maps.InfoWindow({
         maxWidth:200
     });
-    addmarkers(ac_locations, map, infowindowM, markers,'ac');
-    addmarkers(fd_locations, map, infowindowM, markers,'fd');
-    
+ 
 
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             var pos = {
                 lat: position.coords.latitude,
-                lng: position.coords.longitude
+                lng: position.coords.longitude,
+                Type: "mylocation"
             };
             myLocation = pos;
             infoWindow.setPosition(pos);
