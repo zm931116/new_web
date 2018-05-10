@@ -21,7 +21,7 @@
         var cl_locations = [];
 
 
-        init_cllist();
+        //init_cllist();
         console.log(Cllist);
         console.log(cl_locations);
 
@@ -39,12 +39,75 @@
     <h3>View all Center Links</h3>
     <div class="container-fluid">
         <div class="row">
-                <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>
+            <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>
+            <select id="distance_selector" onchange="disSel()">
+                <option id="0" value="0">Distance</option>
+                <option value="5">5</option>
+                <option value="10">10</option>
+                <option value="15">15</option>
+                <option value="20">20</option>
+                <option value="25">25</option>
+            </select>
         </div>
     </div>
 
     <div id="cl_map" class=" abc"></div>
+    <script>
 
+        function sel() {
+            $.ajax({
+                type: "POST",
+                url: "/CenterLink/Ajax_SelData",
+                data: { disStr: $("#distance_selector").val() },
+                success: function (result) {
+                    var marker = [];
+                    markers = [];
+                    if (result) {
+                        debugger
+                        for (var i = 0; i < result.data.length; i++) {
+                            var coords = result.data[i];
+                            var latLng = new google.maps.LatLng(coords.Latitude, coords.Longitude);
+                            marker = new google.maps.Marker({
+                                position: latLng,
+                                animation: google.maps.Animation.DROP,
+                                map: map
+                            });
+                            markers.push(marker);
+                            google.maps.event.addListener(marker, 'click', (function (marker, i) {
+                                return function () {
+                                    var go_google = "Get directions";
+                                    var link_name = go_google.link("https://www.google.com/maps/search/?api=1&query=" + marker.position);
+                                    infowindowM.setContent('<h4 >Centrelink_Location:</h4>' + coords.Centrelink_Location + '<br>'+
+                                        '<h4 >Opening_Days:</h4>' + coords.Opening_Days + '<br>' + '<h4 >Opening_Hours:</h4>' + coords.Opening_Hours + '<br>');
+                                    infowindowM.open(map, marker);
+                                };
+                            })(marker, i));
+                        }
+                        //clear markers in the cluster
+                        markerCluster.clearMarkers();
+                        //add new markers and redraw the clusters and markers
+                        markerCluster.addMarkers(markers, true);
+                    }
+                }
+            })
+        }
+
+        function disSel() {
+            //var data = { loction: myLocation };
+            $.ajax({
+                type: "POST",//数据发送的方式（post 或者 get）
+                url: "/CenterLink/Ajax_SetMylocation",//要发送的后台地址
+                data: { lat: myLocation.lat, lng: myLocation.lng },//要发送的数据（参数）格式为{'val1':"1","val2":"2"}
+                dataType: "json",//后台处理后返回的数据格式
+                success: function (data) {//ajax请求成功后触发的方法
+                    sel();
+                },
+                error: function (msg) {//ajax请求失败后触发的方法
+                    alert(msg);//弹出错误信息
+                }
+            });
+        }
+    </script>
     <script src="~/Scripts/map/cl_map.js" type="text/javascript"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjRyidiHFOw5ov70Ecu5MAmBxV0itrR3I&callback=initMap"></script>

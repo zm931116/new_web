@@ -3,7 +3,7 @@ var infoWindow;
 var infowindowM;
 var markerCluster;
 var map;
-
+var myLocation;
 function initMap() {
     var mainCenter = {
         lat: -37.80453,
@@ -15,7 +15,7 @@ function initMap() {
 
 
 
-    var myLocation;
+
 
     //init map
     map = new google.maps.Map(document.getElementById('dw_map'), {
@@ -37,7 +37,7 @@ function initMap() {
     });
 
 
-    add_fountains(df_locations, map, infowindowM, markers);
+    
 
 
 

@@ -3,6 +3,7 @@ var infoWindow;
 var infowindowM;
 var markerCluster;
 var map;
+var myLocation;
 
 function initMap() {
     var mainCenter = {
@@ -15,7 +16,7 @@ function initMap() {
 
 
 
-    var myLocation;
+    
 
     //init map
     map = new google.maps.Map(document.getElementById('toilet_map'), {
@@ -41,7 +42,7 @@ function initMap() {
 
 
 
-    add_toilets(pt_locations, map, infowindowM, markers);
+    
 
 
 
