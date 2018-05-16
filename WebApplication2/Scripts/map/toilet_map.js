@@ -111,6 +111,8 @@ function addmarkers(listName, map, infowindowM, markers) {
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
+            animation: google.maps.Animation.DROP,
+            icon: 'http://maps.google.com/mapfiles/ms/micons/toilets.png',
             map: map
 
         });

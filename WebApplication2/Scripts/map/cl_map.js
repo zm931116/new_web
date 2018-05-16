@@ -42,7 +42,7 @@ function initMap() {
 
 
 
-    add_cityLinks(cl_locations, map, infowindowM, markers);
+    sel();
 
 
 

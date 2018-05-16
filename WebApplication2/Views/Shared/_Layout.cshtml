@@ -44,7 +44,11 @@
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Find Services<span class="caret"></span></a>
                         <ul class="dropdown-menu">
 
-                            <li>@Html.ActionLink("Food&Accomodation", "map", "Map")</li>
+                            <li>@Html.ActionLink(linkText:"Food&Accomodation",
+                               actionName:"map",
+                               controllerName:"Map",
+                               routeValues: new { selection = 3},
+                               htmlAttributes : null)</li>
                             <li role="separator" class="divider"></li>
                             <li>@Html.ActionLink("Public Toilets", "public_toilets", "Toilet")</li>
                             <li role="separator" class="divider"></li>
@@ -54,7 +58,7 @@
                             <li role="separator" class="divider"></li>
                             <li>@Html.ActionLink("Centrelink", "CenterLink_page", "CenterLink")</li>
                             <li role="separator" class="divider"></li>
-                            <li>@Html.ActionLink("Laundry Service","Index","Laundry")</li>
+                            <li>@Html.ActionLink("Laundry Service","Laundry","Laundry")</li>
                         </ul>
                     </li>
 

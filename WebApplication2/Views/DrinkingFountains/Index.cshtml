@@ -65,7 +65,7 @@
 
     <script src="~/Scripts/map/dw_map.js" type="text/javascript"></script>
     <script>
-
+        sel();
         function sel() {
             $.ajax({
                 type: "POST",
@@ -82,7 +82,8 @@
                             marker = new google.maps.Marker({
                                 position: latLng,
                                 animation: google.maps.Animation.DROP,
-                                map: map
+                                map: map,
+                                icon: 'http://maps.google.com/mapfiles/ms/micons/drinking_water.png'
                             });
                             markers.push(marker);
                             google.maps.event.addListener(marker, 'click', (function (marker, i) {
@@ -98,7 +99,7 @@
                         //clear markers in the cluster
                         markerCluster.clearMarkers();
                         //add new markers and redraw the clusters and markers
-                        markerCluster.addMarkers(markers, true);
+                        markerCluster.addMarkers(markers);
                     }
                 }
             })

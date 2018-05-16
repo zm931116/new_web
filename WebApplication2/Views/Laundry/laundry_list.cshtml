@@ -20,7 +20,7 @@
                 <th>Address</th>
                 <th>Available days</th>
                 <th>Available time</th>
-                
+
 
             </tr>
         </thead>
@@ -32,24 +32,19 @@
 
 <script>
 
-    $(document).ready(function () {
-        var toilet_table = $('#laundry_table').DataTable({
+    var toilet_table = $('#laundry_table').DataTable({
 
-            "paging": true,
-            ajax: {
-                url: "/Laundry/loadAllData"
-            },
-            "columns": [
-                { "data": "Name" },
-                { "data": "Address" },
-                { "data": "Avai_days" },
-                { "data": "Timings" }
-            ],
-        });
-        $('#laundry_table tbody').on('click', 'tr', function () {
-            $(this).toggleClass('selected');
-        });
-
+        "paging": true,
+        ajax: {
+            url: "/Laundry/Ajax_SelData",
+            data: { seaStr: $("#Esearchs").val(), disStr: $("#distance_selector").val() }
+        },
+        "columns": [
+            { "data": "Name" },
+            { "data": "Address" },
+            { "data": "Avai_days" },
+            { "data": "Timings" }
+        ],
     });
 
 

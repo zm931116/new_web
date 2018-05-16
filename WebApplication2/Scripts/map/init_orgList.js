@@ -3,7 +3,8 @@
 function convertObjects(location) {
     var newLocation = {
         lat: location.latitude, lng: location.longitude, info: location.org_name,
-        condition: location.org_condition, available_time: location.available_time
+        condition: location.org_condition, available_time: location.available_time,
+        type : location.Type
     };
     return newLocation;
 }
@@ -46,45 +47,38 @@ function convertLdObjects(location) {
     return newLocation;
 }
 
-function init_laundryList() {
+function get_laundryList(list) {
     var i;
-    var n_location;
-    for (i = 0; i < LaundryList.length; i++) {
-        n_location = convertLdObjects(LaundryList[i]);
-        ld_locations.push(n_location);
+    var n_location,new_list = [];
+    for (i = 0; i < list.length; i++) {
+        n_location = convertLdObjects(list[i]);
+        new_list.push(n_location);
     }
+    return new_list;
 }
 
 
-function init_orgList() {
-    var i,j,k,l;
+function get_orgList(list) {
+    var i;
     var n_location;
-    for (i = 0; i < Aclist.length; i++) {
-        n_location = convertObjects(Aclist[i]);
-        ac_locations.push(n_location);
+    var new_list = [];
+    for (i = 0; i < list.length; i++) {
+        n_location = convertObjects(list[i]);
+        new_list.push(n_location);
     }
-    for (j = 0; j < Fdlist.length; j++) {
-        n_location = convertObjects(Fdlist[j]);
-        fd_locations.push(n_location);
-    }
-
-    
-    
-
+    return new_list;
 }
 
-function init_cllist() {
-    var i;
-    
+function get_cllist(list) {
+    var i,n_location,new_list =[]; 
 
-    for (i = 0; i < Cllist.length; i++) {
-        console.log(Cllist[i]);
-        n_location = convertClObjects(Cllist[i]);
+    for (i = 0; i < list.length; i++) {
+        console.log(list[i]);
+        n_location = convertClObjects(list[i]);
         console.log(n_location);
-        cl_locations.push(n_location);
-
-
+        new_list.push(n_location);
     }
+    return new_list;
 }
 
 function init_dfList() {

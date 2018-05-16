@@ -37,6 +37,7 @@ function initMap() {
     });
  
 
+    sel();
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(function (position) {
             var pos = {

@@ -12,14 +12,8 @@
     <meta name="viewport" content="width=device-width, initial0scale=1">
     <link rel="stylesheet" href="~/Content/map.css">
 
-    <script>
-        var Aclist = @Html.Raw(Json.Encode(Model.Ac));
-        var Fdlist = @Html.Raw(Json.Encode(Model.Fd));
-
-        var ac_locations = [], fd_locations = [];
-
-    </script>
-    @*<script src="~/Scripts/map/addMarkers.js"></script>*@
+    
+    <script src="~/Scripts/map/addMarkers.js"></script>
     <script src="~/Scripts/map/locating.js" type="text/javascript"></script>
     <script src="~/Scripts/map/init_orgList.js"></script>
 
@@ -27,6 +21,7 @@
 <body>
     <h3>View All Services</h3>
     <div class="container-fluid">
+       
         <div class="row">
 
             
@@ -67,62 +62,7 @@
     </div>
 
     <script>
-
-        var iconBase = 'http://maps.google.com/mapfiles/ms/micons/';
-        var icons = {
-            Accommodation: {
-                icon: iconBase + 'rangerstation.png'
-            },
-            Food: {
-                icon: iconBase + 'restaurant.png'
-            },
-            mylocation: {
-                icon: iconBase + "info.png"
-            }
-
-        }
-
-        document.getElementById("type_selector").onchange = function () {
-            //console.log(this.value);
-            //console.log(markers.length);
-            /*console.log("ac" + ac_locations.length);
-            console.log("fd" + fd_locations.length);*/
-
-            sel(this.value);
-            markers = [];
-            console.log("before" + markers.length);
-
-            if (this.value == 1) {
-                //console.log("food is clicked");
-                //addmarkers(fd_locations, map, infowindowM, markers);
-            }
-
-            else if (this.value == 2) {
-
-                //addmarkers(ac_locations, map, infowindowM, markers);
-
-
-            }
-
-           
-
-            else if (this.value == 3) {
-                //addmarkers(ac_locations, map, infowindowM, markers);
-                //addmarkers(fd_locations, map, infowindowM, markers);
-                //addmarkers(pt_locations, map, infowindowM, markers);
-                //addmarkers(df_locations, map, infowindowM, markers);
-                //addmarkers(cl_locations, map, infowindowM, markers);
-
-
-            }
-            console.log("after" + markers.length);
-            //clear markers in the cluster
-            markerCluster.clearMarkers();
-            //add new markers and redraw the clusters and markers
-            markerCluster.addMarkers(markers, true);
-
-        };
-
+        
         function sel(val) {
             $.ajax({
                 type: "POST",
@@ -130,40 +70,14 @@
                 data: { cheStr: $("#type_selector").val(), seaStr: $("#Esearchs").val(), conStr: $("#condition_selector").val(), disStr: $("#distance_selector").val(), dateStr: $("#date_selector").val() },
                 success: function (result) {
                     
-                    
-                    var marker = [];
                     markers = [];
                     if (result) {
-                        marker
-                        for (var i = 0; i < result.data.length; i++) {
-                            var coords = result.data[i];
-                            //console.log(coords.Type);
-                            var latLng = new google.maps.LatLng(coords.latitude, coords.longitude);
-                            marker = new google.maps.Marker({
-                                position: latLng,
-                                animation: google.maps.Animation.DROP,
-                                map: map,
-                                icon: icons[coords.Type].icon
-                            });
-                            markers.push(marker);
-                            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                                return function () {
-                                    var go_google = "Get directions";
-                                    var link_name = go_google.link("https://www.google.com/maps/search/?api=1&query=" + marker.position);
-                                    infowindowM.setContent('<h4 >' + coords.org_name + '</h4>' +
-                                        '<h4 >Requirement:</h4>' + coords.org_condition + '<br>' + '<h4 >Available Time:</h4>' + coords.available_time + '<br>' + link_name);
-                                    infowindowM.open(map, marker);
-                                };
-                            })(marker, i));
-                        }
-
-
-                        
-                        
+                        var orglist = get_orgList(result.data);
+                        addmarkers(orglist, map, infowindowM, markers);
                         //clear markers in the cluster
                         markerCluster.clearMarkers();
                         //add new markers and redraw the clusters and markers
-                        markerCluster.addMarkers(markers, true);
+                        markerCluster.addMarkers(markers);
                     }
                 }
             })
@@ -181,34 +95,15 @@
                 url: "/Map/Ajax_SelData",
                 data: datas,
                 type: "POST",
-                success: function (data) {
-                    var marker = [];
+                success: function (data) {                    
                     markers = [];
                     if (data) {
-                        for (var i = 0; i < data.data.length; i++) {
-                            var coords = data.data[i];
-                            var latLng = new google.maps.LatLng(coords.latitude, coords.longitude);
-                            marker = new google.maps.Marker({
-                                position: latLng,
-                                animation: google.maps.Animation.DROP,
-                                map: map,
-                                icon: icons[coords.Type].icon
-                            });
-                            markers.push(marker);
-                            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                                return function () {
-                                    var go_google = "Get directions";
-                                    var link_name = go_google.link("https://www.google.com/maps/search/?api=1&query=" + marker.position);
-                                    infowindowM.setContent('<h4 >' + coords.org_name + '</h4>' +
-                                        '<h4 >Requirement:</h4>' + coords.org_condition + '<br>' + '<h4 >Available Time:</h4>' + coords.available_time + '<br>' + link_name);
-                                    infowindowM.open(map, marker);
-                                };
-                            })(marker, i));
-                        }
+                        var orglist = get_orgList(data.data);
+                        addmarkers(orglist, map, infowindowM, markers);
                         //clear markers in the cluster
                         markerCluster.clearMarkers();
                         //add new markers and redraw the clusters and markers
-                        markerCluster.addMarkers(markers, true);
+                        markerCluster.addMarkers(markers);
                     }
                 }
             });

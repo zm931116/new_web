@@ -3,6 +3,7 @@ var infoWindow;
 var infowindowM;
 var markerCluster;
 var map;
+var myLocation;
 
 function initMap() {
     var mainCenter = {
@@ -15,7 +16,7 @@ function initMap() {
 
 
 
-    var myLocation;
+    
 
     //init map
     map = new google.maps.Map(document.getElementById('laundry_map'), {
@@ -41,8 +42,7 @@ function initMap() {
 
 
 
-    add_laundries(ld_locations, map, infowindowM, markers);
-
+   
 
 
 

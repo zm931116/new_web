@@ -1,26 +1,29 @@
 ﻿var iconBase = 'http://maps.google.com/mapfiles/ms/micons/';
 var icons = {
-    ac: {
+    Accommodation: {
         icon: iconBase + 'rangerstation.png'
     },
-    fd: {
+    Food: {
         icon: iconBase + 'restaurant.png'
+    },
+    cl: {
+        icon: iconBase + 'homegardenbusiness.png'
     }
+    
 
 }
+var laundry_icon = {
+    url:"../../images/laundry_marker.png"
+}
 
-
-function addmarkers(listName, map, infowindowM, markers,type) {
+function addmarkers(listName, map, infowindowM, markers) {
     var marker, i;
     
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
             map: map,
-            icon: icons[type].icon
-    
-            
-
+            icon: icons[location['type']].icon
         });
         markers.push(marker);
         google.maps.event.addListener(marker, 'click', (function (marker, i) {
@@ -99,7 +102,9 @@ function add_cityLinks(listName, map, infowindowM, markers) {
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
-            map: map
+            map: map,
+            animation: google.maps.Animation.DROP,
+            icon: icons['cl'].icon
 
         });
         markers.push(marker);
@@ -125,7 +130,9 @@ function add_laundries(listName, map, infowindowM, markers) {
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
-            map: map
+            map: map,
+            animation: google.maps.Animation.DROP,
+            icon: icons['ac'].icon
 
         });
         markers.push(marker);

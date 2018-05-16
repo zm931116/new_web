@@ -422,6 +422,7 @@
     <Content Include="images\ICON-Residence.png" />
     <Content Include="images\icon-water.jpg" />
     <Content Include="images\laundry.png" />
+    <Content Include="images\laundry_marker.png" />
     <Content Include="images\old_phone-512.png" />
     <Content Include="images\picture1.jpg" />
     <Content Include="images\picture2.jpg" />
@@ -559,7 +560,7 @@
     <Content Include="Views\DrinkingFountains\Index.cshtml" />
     <Content Include="Views\CenterLink\CenterLink_page.cshtml" />
     <Content Include="Views\Toilet\toilet_list.cshtml" />
-    <Content Include="Views\Laundry\Index.cshtml" />
+    <Content Include="Views\Laundry\Laundry.cshtml" />
     <Content Include="Views\Laundry\laundry_list.cshtml" />
   </ItemGroup>
   <ItemGroup>

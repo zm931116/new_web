@@ -22,8 +22,7 @@
 
 
         //init_cllist();
-        console.log(Cllist);
-        console.log(cl_locations);
+       
 
     </script>
 
@@ -36,7 +35,7 @@
 
 <body>
 
-    <h3>View all Center Links</h3>
+    <h3>View all CentreLinks</h3>
     <div class="container-fluid">
         <div class="row">
             <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>
@@ -54,39 +53,25 @@
     <div id="cl_map" class=" abc"></div>
     <script>
 
+
+        //sel();
+
         function sel() {
             $.ajax({
                 type: "POST",
                 url: "/CenterLink/Ajax_SelData",
                 data: { disStr: $("#distance_selector").val() },
-                success: function (result) {
-                    var marker = [];
-                    markers = [];
+                success: function (result) {                    
+                    markers = [];       
                     if (result) {
-                        debugger
-                        for (var i = 0; i < result.data.length; i++) {
-                            var coords = result.data[i];
-                            var latLng = new google.maps.LatLng(coords.Latitude, coords.Longitude);
-                            marker = new google.maps.Marker({
-                                position: latLng,
-                                animation: google.maps.Animation.DROP,
-                                map: map
-                            });
-                            markers.push(marker);
-                            google.maps.event.addListener(marker, 'click', (function (marker, i) {
-                                return function () {
-                                    var go_google = "Get directions";
-                                    var link_name = go_google.link("https://www.google.com/maps/search/?api=1&query=" + marker.position);
-                                    infowindowM.setContent('<h4 >Centrelink_Location:</h4>' + coords.Centrelink_Location + '<br>'+
-                                        '<h4 >Opening_Days:</h4>' + coords.Opening_Days + '<br>' + '<h4 >Opening_Hours:</h4>' + coords.Opening_Hours + '<br>');
-                                    infowindowM.open(map, marker);
-                                };
-                            })(marker, i));
-                        }
+                        //transform center lin list
+                        var newList = get_cllist(result.data);
+                        //add markers
+                        add_cityLinks(newList, map, infowindowM, markers);                        
                         //clear markers in the cluster
                         markerCluster.clearMarkers();
                         //add new markers and redraw the clusters and markers
-                        markerCluster.addMarkers(markers, true);
+                        markerCluster.addMarkers(markers);
                     }
                 }
             })

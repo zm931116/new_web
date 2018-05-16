@@ -1,9 +1,9 @@
 ﻿@model WebApplication2.Models.Org_viewModel
-
 @{
-    ViewBag.Title = "Public Toilets";
+    ViewBag.Title = "Laundry Service";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+
 <html>
 <head>
     <meta charset="utf-8">
@@ -11,21 +11,18 @@
     <link rel="stylesheet" href="~/Content/map.css">
 
     <script src="~/Scripts/map/addMarkers.js"></script>
-    <script src="~/Scripts/map/locating.js" type="text/javascript"></script>
-    <script src="~/Scripts/map/init_toilets.js"></script>
+    <script src="~/Scripts/map/locating.js"></script>
+    <script src="~/Scripts/map/init_orgList.js"></script>
 
-    
-
-
-
-
-
+    <script>
+        @*var LaundryList = @Html.Raw(Json.Encode(Model.Ld));
+        var ld_locations = [];*@
+      /*  init_laundryList()*/;
+    </script>
 
 </head>
-
 <body>
-
-    <h3>View all public toilets</h3>
+    <h3>View all laundry services</h3>
     <div class="container-fluid">
         <div class="row">
             <button id="locating_bt" type="button" class="btn btn-primary">My Location</button>
@@ -40,87 +37,77 @@
             </select>
         </div>
     </div>
-    
-    <div class="abc" id="toilet_map"></div>
 
-    <script src="~/Scripts/map/toilet_map.js" type="text/javascript"></script>
+    <div class="abc" id="laundry_map"></div>
+    <script src="~/Scripts/map/laundry_map.js" type="text/javascript"></script>
     <script src="https://developers.google.com/maps/documentation/javascript/examples/markerclusterer/markerclusterer.js"></script>
     <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAjRyidiHFOw5ov70Ecu5MAmBxV0itrR3I&callback=initMap"></script>
+    @*@Html.Action("laundry_list", "Laundry");*@
     <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
 
     <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
-    
 
     <div id="listdiv"></div>
-
     <script>
-        var Ptlist = @Html.Raw(Json.Encode(Model.Pt));
-        var pt_locations = [];
 
-        
-        $(document).ready(function () {
-            $("#listdiv").load("/Toilet/toilet_list")
-
-        });
-
-        sel();
-
-        function sel() {
+        function sel(val) {
             $.ajax({
                 type: "POST",
-                url: "/Toilet/Ajax_SelData",
-                data: { seaStr: $("#Esearchs").val(),  disStr: $("#distance_selector").val()},
-                success: function (result) {                 
+                url: "/Laundry/Ajax_SelData",
+                data: { seaStr: $("#Esearchs").val(), disStr: $("#distance_selector").val() },
+                success: function (result) {                    
                     markers = [];
                     if (result) {
-                        var toilets = get_toilets(result.data);
-                        add_toilets(toilets, map, infowindowM, markers);
+                        var laundryList = get_laundryList(result.data);
+                        add_laundries(laundryList, map, infowindowM, markers);
                         //clear markers in the cluster
                         markerCluster.clearMarkers();
                         //add new markers and redraw the clusters and markers
                         markerCluster.addMarkers(markers);
-                        //markerCluster.redraw();
                     }
                 }
             })
 
-            $("#listdiv").load("/Toilet/ac_list")
+            $("#listdiv").load("/Laundry/laundry_list")
         }
+        $(document).ready(function () {
+            $("#listdiv").load("/Laundry/laundry_list")
+
+        });
 
         function selss() {
-            var datas = {  seaStr: $("#Esearchs").val(), disStr: $("#distance_selector").val() }
+            var datas = { seaStr: $("#Esearchs").val(), disStr: $("#distance_selector").val() }
             $.ajax({
-                url: "/Toilet/Ajax_SelData",
+                url: "/Laundry/Ajax_SelData",
                 data: datas,
                 type: "POST",
-                success: function (data) {
-                   
+                success: function (data) {                    
                     markers = [];
                     if (data) {
-                        var toilets = get_toilets(data.data);
-                        add_toilets(toilets, map, infowindowM, markers);
+                        var laundryList = get_laundryList(data.data);
+                        add_laundries(laundryList, map, infowindowM, markers);
                         //clear markers in the cluster
                         markerCluster.clearMarkers();
                         //add new markers and redraw the clusters and markers
                         markerCluster.addMarkers(markers);
-                        //markerCluster.redraw();
                     }
                 }
             });
-            $("#listdiv").load("/Toilet/toilet_list");
+            $("#listdiv").load("/Laundry/laundry_list");
             //markers = [];
             //addmarkers(all_locations, map, infowindowM, markers);
 
         }
+
         function disSel() {
             //var data = { loction: myLocation };
             $.ajax({
                 type: "POST",//数据发送的方式（post 或者 get）
-                url: "/Toilet/Ajax_SetMylocation",//要发送的后台地址
+                url: "/Laundry/Ajax_SetMylocation",//要发送的后台地址
                 data: { lat: myLocation.lat, lng: myLocation.lng },//要发送的数据（参数）格式为{'val1':"1","val2":"2"}
                 dataType: "json",//后台处理后返回的数据格式
                 success: function (data) {//ajax请求成功后触发的方法
-                    $("#listdiv").load("/Toilet/toilet_list")
+                    $("#listdiv").load("/Laundry/laundry_list")
                     sel();
                 },
                 error: function (msg) {//ajax请求失败后触发的方法
@@ -131,8 +118,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-

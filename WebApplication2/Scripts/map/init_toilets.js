@@ -6,11 +6,13 @@
     };
     return newLocation;
 }
-function init_toilets() {
+function get_toilets(list) {
     var k;
     var n_location;
-    for (k = 0; k < Ptlist.length; k++) {
-        n_location = convertPtObjects(Ptlist[k]);
-        pt_locations.push(n_location);
+    var newList = [];
+    for (k = 0; k < list.length; k++) {
+        n_location = convertPtObjects(list[k]);
+        newList.push(n_location);
     }
+    return newList;
 }
