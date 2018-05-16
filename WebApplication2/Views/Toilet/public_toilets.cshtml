@@ -54,9 +54,7 @@
     <div id="listdiv"></div>
 
     <script>
-        var Ptlist = @Html.Raw(Json.Encode(Model.Pt));
-        var pt_locations = [];
-
+        
         
         $(document).ready(function () {
             $("#listdiv").load("/Toilet/toilet_list")
@@ -108,9 +106,7 @@
                 }
             });
             $("#listdiv").load("/Toilet/toilet_list");
-            //markers = [];
-            //addmarkers(all_locations, map, infowindowM, markers);
-
+            
         }
         function disSel() {
             //var data = { loction: myLocation };

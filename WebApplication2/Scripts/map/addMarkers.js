@@ -23,6 +23,7 @@ function addmarkers(listName, map, infowindowM, markers) {
         var marker = new google.maps.Marker({
             position: location,
             map: map,
+            animation: google.maps.Animation.DROP,
             icon: icons[location['type']].icon
         });
         markers.push(marker);
@@ -49,6 +50,7 @@ function add_toilets(listName, map, infowindowM, markers) {
         var marker = new google.maps.Marker({
             position: location,
             icon: iconBase + 'toilets.png',
+            animation: google.maps.Animation.DROP,
             map: map
             
 
@@ -79,6 +81,8 @@ function add_fountains(listName, map, infowindowM, markers) {
         var marker = new google.maps.Marker({
             position: location,
             map: map,
+            animation: google.maps.Animation.DROP,
+
             icon: iconBase +'drinking_water.png'
 
         });

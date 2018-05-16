@@ -73,21 +73,22 @@ function get_cllist(list) {
     var i,n_location,new_list =[]; 
 
     for (i = 0; i < list.length; i++) {
-        console.log(list[i]);
+        //console.log(list[i]);
         n_location = convertClObjects(list[i]);
-        console.log(n_location);
+        //console.log(n_location);
         new_list.push(n_location);
     }
     return new_list;
 }
 
-function init_dfList() {
+function get_dfList(list) {
     var i;
-    var n_location
+    var n_location, newList=[];
 
-    for (i = 0; i < Dflist.length; i++) {
-        n_location = convertDfOjects(Dflist[i]);
-        df_locations.push(n_location);
+    for (i = 0; i < list.length; i++) {
+        n_location = convertDfOjects(list[i]);
+        newList.push(n_location);
     }
+    return newList;
 
 }

@@ -1,0 +1,51 @@
+﻿@model WebApplication2.Models.Org_viewModel
+
+
+
+<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.css">
+
+<script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.js"></script>
+
+
+<div class="container">
+    <h2>Laundry services</h2>
+
+    <table id="cl_table" class="display">
+
+
+        <thead>
+            <tr>
+
+                <th>Name</th>
+                <th>Address</th>
+                <th>Available days</th>
+                <th>Available time</th>
+
+
+            </tr>
+        </thead>
+    </table>
+
+
+
+</div>
+
+<script>
+
+    var cl_table = $('#cl_table').DataTable({
+
+        "paging": true,
+        ajax: {
+            url: "/CenterLink/Ajax_SelData",
+            data: { disStr: $("#distance_selector").val()  }
+        },
+        "columns": [
+            { "data": "Centrelink_Location" },
+            { "data": "Address" },
+            { "data": "Opening_Days" },
+            { "data": "Opening_Hours" }
+        ],
+    });
+
+
+</script>

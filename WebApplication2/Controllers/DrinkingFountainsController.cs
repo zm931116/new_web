@@ -11,7 +11,7 @@ namespace WebApplication2.Controllers
     public class DrinkingFountainsController : Controller
     {
         // GET: DrinkingFountains
-        public ActionResult Index()
+        public ActionResult DrinkingFountains()
         {
             //initialize the models
             var entities = new feed_your_soulEntities();
@@ -31,7 +31,7 @@ namespace WebApplication2.Controllers
 
 
 
-            return View("Index", "_Layout", org_list);
+            return View("DrinkingFountains", "_Layout", org_list);
         }
 
         public ActionResult Ajax_SelData( int disStr)

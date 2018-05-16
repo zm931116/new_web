@@ -557,11 +557,12 @@
     <Content Include="Scripts\jquery-3.0.0.slim.min.map" />
     <Content Include="Scripts\jquery-3.0.0.min.map" />
     <Content Include="Views\Toilet\public_toilets.cshtml" />
-    <Content Include="Views\DrinkingFountains\Index.cshtml" />
+    <Content Include="Views\DrinkingFountains\DrinkingFountains.cshtml" />
     <Content Include="Views\CenterLink\CenterLink_page.cshtml" />
     <Content Include="Views\Toilet\toilet_list.cshtml" />
     <Content Include="Views\Laundry\Laundry.cshtml" />
     <Content Include="Views\Laundry\laundry_list.cshtml" />
+    <Content Include="Views\CenterLink\cl_list.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

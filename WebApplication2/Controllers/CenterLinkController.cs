@@ -20,6 +20,11 @@ namespace WebApplication2.Controllers
             return View(org_list);
         }
 
+        public ActionResult cl_list()
+        {
+            return PartialView();
+        }
+
         public ActionResult Ajax_SelData(int disStr)
         {
             var entities = new feed_your_soulEntities();
