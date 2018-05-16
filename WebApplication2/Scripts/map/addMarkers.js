@@ -136,7 +136,7 @@ function add_laundries(listName, map, infowindowM, markers) {
             position: location,
             map: map,
             animation: google.maps.Animation.DROP,
-            icon: icons['ac'].icon
+            icon: icons['Accommodation'].icon
 
         });
         markers.push(marker);
