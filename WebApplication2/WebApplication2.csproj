@@ -415,7 +415,9 @@
     <Content Include="images\Billorfood.png" />
     <Content Include="images\centrelink.png" />
     <Content Include="images\cpg-foods-icon.jpeg" />
+    <Content Include="images\drinking_water.png" />
     <Content Include="images\home2-512.png" />
+    <Content Include="images\homegardenbusiness.png" />
     <Content Include="images\homeless1.jpg" />
     <Content Include="images\homeless2.jpg" />
     <Content Include="images\homeless3.jpg" />
@@ -428,7 +430,9 @@
     <Content Include="images\picture2.jpg" />
     <Content Include="images\picture3.jpg" />
     <Content Include="images\picture4.jpg" />
+    <Content Include="images\restaurant.png" />
     <Content Include="images\toilet.png" />
+    <Content Include="images\toilets.png" />
     <Content Include="Models\orgModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>orgModel.edmx</DependentUpon>

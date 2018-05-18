@@ -1,4 +1,4 @@
-﻿var iconBase = 'http://maps.google.com/mapfiles/ms/micons/';
+﻿var iconBase = '../../images/';
 var icons = {
     Accommodation: {
         icon: iconBase + 'rangerstation.png'
@@ -49,7 +49,7 @@ function add_toilets(listName, map, infowindowM, markers) {
     markers = listName.map(function (location, i) {
         var marker = new google.maps.Marker({
             position: location,
-            icon: iconBase + 'toilets.png',
+            //icon: iconBase + 'toilets.png',
             animation: google.maps.Animation.DROP,
             map: map
             
