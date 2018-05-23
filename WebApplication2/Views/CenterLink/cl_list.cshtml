@@ -35,6 +35,10 @@
     var cl_table = $('#cl_table').DataTable({
 
         "paging": true,
+        "scrollX": true,
+        scroller: {
+            loadingIndicator: true
+        },
         ajax: {
             url: "/CenterLink/Ajax_SelData",
             data: { disStr: $("#distance_selector").val()  }

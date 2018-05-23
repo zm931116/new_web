@@ -37,7 +37,7 @@
                     <option id="all" value="3">All</option>
                 </select>
                 <select id="condition_selector" onchange="sel()">
-                    <option id="0" value="0">Condition</option>
+                    <option id="0" value="0">Food Condition</option>
                     <option id="free" value="free">free</option>
                     <option id="low price" value="low price">low price</option>
                     <option id="concession card" value="concession card">concession card</option>
@@ -64,10 +64,20 @@
     <script>
         document
 
-        document.getElementById("type_selector").value = @ViewBag.Selection
-            document.getElementById("type_selector").onchange = function () {
+        document.getElementById("type_selector").value = @ViewBag.Selection;
 
-                sel(this.value);
+        document.getElementById("type_selector").onchange = function () {
+            
+
+            sel(this.value);
+
+            if (this.value == 2) {
+                document.getElementById("condition_selector").style.visibility = "hidden";
+                document.getElementById("condition_selector").value = 0;
+            } else {
+                document.getElementById("condition_selector").style.visibility = "visible";
+            }
+
             }
         
         function sel(val) {

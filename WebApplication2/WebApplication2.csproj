@@ -416,6 +416,7 @@
     <Content Include="images\centrelink.png" />
     <Content Include="images\cpg-foods-icon.jpeg" />
     <Content Include="images\drinking_water.png" />
+    <Content Include="images\foodddddd.jpg" />
     <Content Include="images\home2-512.png" />
     <Content Include="images\homegardenbusiness.png" />
     <Content Include="images\homeless1.jpg" />
@@ -433,6 +434,8 @@
     <Content Include="images\restaurant.png" />
     <Content Include="images\toilet.png" />
     <Content Include="images\toilets.png" />
+    <Content Include="images\Where.jpg" />
+    <Content Include="images\Who.jpg" />
     <Content Include="Models\orgModel.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <DependentUpon>orgModel.edmx</DependentUpon>

@@ -1,7 +1,7 @@
 ﻿var iconBase = '../../images/';
 var icons = {
     Accommodation: {
-        icon: iconBase + 'rangerstation.png'
+        icon: iconBase + 'homegardenbusiness.png'
     },
     Food: {
         icon: iconBase + 'restaurant.png'

@@ -32,6 +32,10 @@
     var table = $('#org_table').DataTable({
 
         "paging": true,
+        "scrollX": true,
+        scroller: {
+            loadingIndicator: true
+        },
         ajax: {
             url: "/Map/Ajax_SelData",
             data: { cheStr: $("#type_selector").val(), seaStr: $("#Esearchs").val(), conStr: $("#condition_selector").val(), disStr: $("#distance_selector").val(), dateStr: $("#date_selector").val() }

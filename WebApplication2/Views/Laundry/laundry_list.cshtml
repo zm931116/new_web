@@ -35,6 +35,10 @@
     var toilet_table = $('#laundry_table').DataTable({
 
         "paging": true,
+        "scrollX": true,
+        scroller: {
+            loadingIndicator: true
+        },
         ajax: {
             url: "/Laundry/Ajax_SelData",
             data: { seaStr: $("#Esearchs").val(), disStr: $("#distance_selector").val() }
